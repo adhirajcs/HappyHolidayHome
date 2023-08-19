@@ -12,7 +12,7 @@
     
     <!-- Nav Bar -->
     <?php include("inc/header.php"); ?>
-
+    <br>
     <div class="container">
         <h1>About Us</h1>
         <p class="about-us-text">Welcome to HappyHolidayHome, your one-stop destination for finding the perfect holiday home for your vacation. Our mission is to provide you with a seamless and enjoyable experience in finding the ideal place to stay during your travels. Whether you're looking for a cozy cabin in the mountains, a beachfront villa, or a bustling city apartment, we've got you covered.</p>

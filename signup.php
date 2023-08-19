@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HappyHolidayHome</title>
     <link rel="stylesheet" href="assets/css/signup-login.css">
-    <script src="assets/js/signup.js"></script>
+    
 </head>
 
 <body">
      
      <!-- Nav Bar -->
     <?php include("inc/header.php"); ?>
-    <br><br>
+    <br><br><br>
 
     <div class="container">
         <form action="/" method="POST" class="form" onsubmit="return validateForm()">
