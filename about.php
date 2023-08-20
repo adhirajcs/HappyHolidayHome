@@ -1,10 +1,18 @@
+<?php
+
+# database
+include("inc/db.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HappyHolidayHome</title>
+    <title>HappyHolidayHome - About</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
     <link rel="stylesheet" href="assets/css/about.css">
 </head>
 
@@ -12,7 +20,7 @@
     
     <!-- Nav Bar -->
     <?php include("inc/header.php"); ?>
-
+    <br>
     <div class="container">
         <h1>About Us</h1>
         <p class="about-us-text">Welcome to HappyHolidayHome, your one-stop destination for finding the perfect holiday home for your vacation. Our mission is to provide you with a seamless and enjoyable experience in finding the ideal place to stay during your travels. Whether you're looking for a cozy cabin in the mountains, a beachfront villa, or a bustling city apartment, we've got you covered.</p>
