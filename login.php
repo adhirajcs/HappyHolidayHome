@@ -15,6 +15,13 @@ if (isset($_POST['login'])) {
     if ($rs->num_rows == 1) {
         // Login successful
         session_start();
+        
+        $userData = $rs->fetch_assoc();
+        $userName = $userData['name'];
+        $userId = $userData['user_id'];
+
+        $_SESSION['user_id'] = $userId;
+        $_SESSION['name'] = $userName;
         $_SESSION['loggedin'] = true;
         
         header("Location: index.php");
@@ -32,10 +39,13 @@ if (isset($_POST['login'])) {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>HappyHolidayHome - Login</title>
     <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
     <link rel="stylesheet" href="assets/css/signup-login.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
     
 </head>
 

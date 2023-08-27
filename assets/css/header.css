@@ -1,0 +1,97 @@
+/* Navigation bar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 68, 160, 0.9);
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s; 
+}
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #1f1096;
+}
+
+.nav-links li.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+}
+
+.dropdown-content a:hover {
+    background-color: #0077ff;
+}
+
+/* Profile info styles */
+.profile-info {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.profile-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+/* Add gap between nav items */
+.nav-links li {
+    margin-right: 30px;
+}
+
+/* Add extra gap on the right side of the last nav item */
+.nav-links li:last-child {
+    margin-right: 40px;
+}
+
+/* Style for the logout button */
+.nav-links li.dropdown ul li:last-child a {
+    color: red;
+}

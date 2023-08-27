@@ -1,0 +1,83 @@
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    
+    .navbar {
+        padding: 10px;
+        position: static; 
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        background-color: rgba(0, 68, 160, 0.9);
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .nav-links li {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .nav-links li:last-child {
+        margin-right: 0;
+    }
+
+    .profile-info {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .profile-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .form {
+        max-width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        margin-top: 10px;
+    }
+    
+    .holiday-home {
+        flex-direction: column; 
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px; /* Adjust padding for better spacing */
+    }
+    
+    .home-image {
+        max-width: 100%; /* Take full width */
+        max-height: 300px; /* Adjust the height */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+    }
+    
+    .holiday-details {
+        border-left: none; /* Remove the border */
+        padding-left: 0; /* Remove padding */
+    }
+    
+    .btn {
+        margin-right: 0; /* Remove margin */
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+}
