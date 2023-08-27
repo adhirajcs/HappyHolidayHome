@@ -1,0 +1,97 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: url('../img/search-bg.jpg') center/cover no-repeat;
+    color: white;
+    background-size: cover;
+    position: relative;
+}
+
+/* Container for search results */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1px);
+}
+
+/* Styles for individual search result */
+.holiday-home {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 77, 128, 0.8);
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #000;
+}
+
+.home-image {
+    max-width: 50%;
+    max-height: 250px; 
+    width: auto;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.holiday-details {
+    flex: 1;
+    text-align: left;
+    border-left: 1px solid #ccc;
+    padding-left: 20px; 
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #0077ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0055cc;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: white;
+}
+
+.label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+.error {
+    color: red;
+}

@@ -10,10 +10,13 @@ include("inc/db.php");
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>HappyHolidayHome - Contact Us</title>
     <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
     <link rel="stylesheet" href="assets/css/contact.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 
 <body>
