@@ -36,7 +36,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Reserve - HappyHolidayHome</title>
     <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
-    <link rel="stylesheet" href="assets/css/reservations.css">
+    <link rel="stylesheet" href="assets/css/reservation.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -53,12 +53,16 @@ if ($result && mysqli_num_rows($result) > 0) {
         foreach ($reservations as $reservation) {
             echo "<li class='reservation-item'>";
             echo "<img src='{$reservation['image_path']}' alt='{$reservation['name']}' class='home-image'>";
-            echo "<div class='reservation-details'>"; // Open a div for details
+            echo "<div class='reservation-details'>";
             echo "<p><strong>Home:</strong> {$reservation['name']}</p>";
             echo "<p><strong>Check-in:</strong> {$reservation['check_in_date']}</p>";
             echo "<p><strong>Check-out:</strong> {$reservation['check_out_date']}</p>";
             echo "<p><strong>Total Price:</strong> ₹{$reservation['total_price']}</p>";
-            echo "</div>"; // Close the details div
+            echo "<form method='post' action='cancel_booking.php'>";
+            echo "<input type='hidden' name='reservation_id' value='{$reservation['reservation_id']}'>";
+            echo "<button type='submit' class='cancel-button' name='cancel_booking'>Cancel Booking</button>";
+            echo "</form>";
+            echo "</div>";
             echo "</li>";
         }
         echo "</ul>";
