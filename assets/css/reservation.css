@@ -1,0 +1,92 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: url('../img/search-bg.jpg') center/cover no-repeat;
+    color: white;
+    background-size: cover;
+    position: relative;
+}
+
+/* Container for reservations */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1px);
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* List of reservations */
+.reservation-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.reservation-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 77, 128, 0.8);
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #000;
+}
+
+.home-image {
+    max-width: 60%;
+    max-height: 200px;
+    width: auto;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.reservation-details {
+    flex: 1;
+    text-align: left;
+    color: white;
+    margin-left: 20px;
+}
+
+.reservation-details p {
+    margin-bottom: 5px;
+}
+
+.cancel-button {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+    background-color: #ff0000;
+}
+
+.error {
+    color: red;
+}
