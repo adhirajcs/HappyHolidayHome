@@ -11,23 +11,31 @@ if (isset($_POST['save'])) {
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
 
-    // Perform password validation and hashing
-    if ($password === $confirmPassword) {
-        #password = hash('sha256', $password);
-        
-        $insertQuery = "INSERT INTO users (name, email, phone, password) 
-                        VALUES ('$name', '$email', '$phone', '$password')";
-        
-        if (mysqli_query($conn, $insertQuery)) {
-            // Registration successful
-            $_SESSION['registrationSuccess'] = true;
-            header("Location: index.php");
-            exit();
-        } else {
-            $registrationError = "Registration failed. Please try again.";
-        }
+    // Check if the email or phone number already exists in the database
+    $checkQuery = "SELECT * FROM users WHERE email = '$email' OR phone = '$phone'";
+    $result = mysqli_query($conn, $checkQuery);
+
+    if (mysqli_num_rows($result) > 0) {
+        $registrationError = "An account with the same email or phone number already exists.";
     } else {
-        $registrationError = "Passwords do not match.";
+        // Perform password validation and hashing
+        if ($password === $confirmPassword) {
+            $password = hash('sha256', $password);
+            
+            $insertQuery = "INSERT INTO users (name, email, phone, password) 
+                            VALUES ('$name', '$email', '$phone', '$password')";
+            
+            if (mysqli_query($conn, $insertQuery)) {
+                // Registration successful
+                $_SESSION['registrationSuccess'] = true;
+                header("Location: login.php");
+                exit();
+            } else {
+                $registrationError = "Registration failed. Please try again.";
+            }
+        } else {
+            $registrationError = "Passwords do not match.";
+        }
     }
 }
 ?>
@@ -39,10 +47,12 @@ if (isset($_POST['save'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>HappyHolidayHome - Sign Up</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
     <link rel="stylesheet" href="assets/css/signup-login.css">
     <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     
 </head>
@@ -72,7 +82,8 @@ if (isset($_POST['save'])) {
             ?>
             <button type="submit" name="save" class="btn btn-success">Sign Up</button>
             <button type="reset" name="reset" class="btn btn-danger">Cancel</button>
-            <p class="no-account">Already have Account? <a href="login.php">Login here</a></p>
+            <p class="no-account">Already have Account? <a href="login.php">Login here</a></p><br>
+            <p class="no-account">Are you an Admin? <a href="admin/admin_signup.php">Admin Sign Up</a></p>
         </form>
     </div>
 

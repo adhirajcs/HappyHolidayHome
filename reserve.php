@@ -6,6 +6,7 @@ $reservationSuccess = false;
 $reservationError = "";
 $selectedHome = null;
 
+
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     // User is not logged in, redirect to login page
@@ -15,6 +16,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 // Check if the form data has been submitted
 if (isset($_GET['home_id'])) {
+    $user_id = $_SESSION['user_id'];
     $homeId = $_GET['home_id'];
 
     // Fetch selected home's information
@@ -46,7 +48,7 @@ if (isset($_POST['home_id'], $_POST['checkIn'], $_POST['checkOut'])) {
 
         // Insert reservation into the database
     $insertQuery = "INSERT INTO reservations (user_id, home_id, check_in_date, check_out_date, total_price) 
-                    VALUES (1, $homeId, '$checkIn', '$checkOut', $totalPrice)";
+                    VALUES ($user_id, $homeId, '$checkIn', '$checkOut', $totalPrice)";
     $insertResult = mysqli_query($conn, $insertQuery);
 
         if ($insertResult) {
@@ -70,6 +72,8 @@ if (isset($_POST['home_id'], $_POST['checkIn'], $_POST['checkOut'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Reserve - HappyHolidayHome</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
     <link rel="stylesheet" href="assets/css/reserve.css">
     <link rel="stylesheet" href="assets/css/header.css">

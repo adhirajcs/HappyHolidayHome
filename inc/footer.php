@@ -10,7 +10,18 @@
         </div>
     </div>
     <div class="footer-info">
-        <p>&copy; 2023 HappyHolidayHome. All rights reserved.</p>
-        <p>Designed by Adhiraj Saha</p>
-    </div>
+    <p>HappyHolidayHome</p>
+    <br>
+    <p>Made with ❤️ by Adhiraj Saha</p>
+    <br>
+    <p>Connect with me on:</p>
+    <br>
+    <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-2x fa-linkedin" style="color: #ffffff;"></i>
+    </a>
+    &nbsp;
+    <a href="https://github.com/adhirajcs" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-2x fa-github" style="color: #ffffff;"></i>
+    </a>
+</div>
 </footer>
