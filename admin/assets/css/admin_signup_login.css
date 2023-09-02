@@ -1,0 +1,19 @@
+body.dark-mode {
+    background-color: #1e2a38;
+    color: white;
+}
+
+body {
+    background-color: lightblue;
+}
+
+
+.container form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
