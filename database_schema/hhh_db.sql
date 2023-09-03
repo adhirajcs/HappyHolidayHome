@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2023 at 02:56 PM
+-- Generation Time: Sep 03, 2023 at 05:43 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -90,8 +90,8 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`reservation_id`, `user_id`, `home_id`, `check_in_date`, `check_out_date`, `total_price`) VALUES
-(2, 5, 1, '2023-09-12', '2023-09-20', 4000.00),
-(3, 5, 4, '2023-09-13', '2023-09-20', 2520.00);
+(3, 5, 4, '2023-09-13', '2023-09-20', 2520.00),
+(4, 5, 3, '2023-09-12', '2023-09-20', 2400.00);
 
 -- --------------------------------------------------------
 
@@ -166,13 +166,13 @@ ALTER TABLE `holiday_homes`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
