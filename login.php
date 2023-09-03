@@ -2,7 +2,6 @@
 
 # database
 include("inc/db.php");
-
 include("inc/api.php");
 
 if (isset($_POST['login'])) {
@@ -22,7 +21,7 @@ if (isset($_POST['login'])) {
         $password = hash('sha256', $password);
 
         $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-        $rs = $conn->query($sql);
+        $rs = $con->query($sql);
 
         if ($rs->num_rows == 1) {
             // Login successful
@@ -87,10 +86,11 @@ if (isset($_POST['login'])) {
                 echo "<p class='error' style='color: red; font-weight: bold;'>$loginError</p>";
             }
             ?>
-            <div class="g-recaptcha" data-sitekey="6LeA9vMnAAAAAPG6hGJ6iyzi9XrtvQeoADcKaKwF"></div>
+            <div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>"></div>
             <button type="submit" name="login" class="btn btn-success">Login</button>
             <button type="reset" name="reset" class="btn btn-danger">Cancel</button>
             <p class="no-account">Don't have an account? <a href="signup.php">Sign up here</a></p>
+            <p class="no-account">Are you an Admin? <a href="admin/admin_login.php">Admin Login</a></p>
         </form>
 
 

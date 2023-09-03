@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 
     // Check if the admin_email already exists in the database
     $checkQuery = "SELECT * FROM admin WHERE admin_email = '$admin_email'";
-    $result = $conn->query($checkQuery);
+    $result = $con->query($checkQuery);
 
     if ($result && $result->num_rows > 0) {
         $registrationError = "An account with the same email already exists.";
@@ -24,8 +24,8 @@ if (isset($_POST['submit'])) {
             // SQL query to insert admin data into the database
             $sql = "INSERT INTO admin (admin_name, admin_email, admin_password) VALUES ('$admin_name', '$admin_email', '$admin_password')";
 
-            // Execute the query using $conn->query
-            $insertResult = $conn->query($sql);
+            // Execute the query using $con->query
+            $insertResult = $con->query($sql);
 
             if ($insertResult) {
                 // Registration successful
@@ -93,6 +93,7 @@ if (isset($_POST['submit'])) {
             }
             ?>
             <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
+            <button type="reset" name="reset" class="btn btn-danger">Cancel</button>
         </form>
     </div>
 

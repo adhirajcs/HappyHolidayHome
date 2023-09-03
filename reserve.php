@@ -6,12 +6,11 @@ $reservationSuccess = false;
 $reservationError = "";
 $selectedHome = null;
 
-
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     // User is not logged in, redirect to login page
     header("Location: login.php");
-    exit; // Ensure the script stops executing after redirection
+    exit;
 }
 
 // Check if the form data has been submitted
@@ -21,10 +20,10 @@ if (isset($_GET['home_id'])) {
 
     // Fetch selected home's information
     $query = "SELECT * FROM holiday_homes WHERE home_id = $homeId";
-    $result = mysqli_query($conn, $query);
+    $result = $con->query($query);
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        $selectedHome = mysqli_fetch_assoc($result);
+    if ($result && $result->num_rows > 0) {
+        $selectedHome = $result->fetch_assoc();
     } else {
         $reservationError = "Selected home not found.";
     }
@@ -38,18 +37,18 @@ if (isset($_POST['home_id'], $_POST['checkIn'], $_POST['checkOut'])) {
 
     // Calculate total price based on selected home's price and booking duration
     $query = "SELECT price FROM holiday_homes WHERE home_id = $homeId";
-    $result = mysqli_query($conn, $query);
+    $result = $con->query($query);
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
         $price = $row['price'];
         $bookingDuration = strtotime($checkOut) - strtotime($checkIn);
         $totalPrice = ($bookingDuration / (60 * 60 * 24)) * $price;
 
         // Insert reservation into the database
-    $insertQuery = "INSERT INTO reservations (user_id, home_id, check_in_date, check_out_date, total_price) 
-                    VALUES ($user_id, $homeId, '$checkIn', '$checkOut', $totalPrice)";
-    $insertResult = mysqli_query($conn, $insertQuery);
+        $insertQuery = "INSERT INTO reservations (user_id, home_id, check_in_date, check_out_date, total_price) 
+                        VALUES ($user_id, $homeId, '$checkIn', '$checkOut', $totalPrice)";
+        $insertResult = $con->query($insertQuery);
 
         if ($insertResult) {
             // Successful reservation
@@ -58,13 +57,14 @@ if (isset($_POST['home_id'], $_POST['checkIn'], $_POST['checkOut'])) {
             // Redirect to reservations.php after successful reservation
             header("Location: reservations.php");
         } else {
-            $reservationError = "Error creating reservation: " . mysqli_error($conn);
+            $reservationError = "Error creating reservation: " . $con->error;
         }
     } else {
-        $reservationError = "Error fetching home price: " . mysqli_error($conn);
+        $reservationError = "Error fetching home price: " . $con->error;
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

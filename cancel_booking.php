@@ -14,12 +14,12 @@ if (isset($_POST['cancel_booking'])) {
 
     // Check if the reservation belongs to the logged-in user
     $checkQuery = "SELECT * FROM reservations WHERE reservation_id = $reservationId AND user_id = $userId";
-    $checkResult = mysqli_query($conn, $checkQuery);
+    $checkResult = $con->query($checkQuery);
 
-    if ($checkResult && mysqli_num_rows($checkResult) === 1) {
+    if ($checkResult && $checkResult->num_rows === 1) {
         // Delete the reservation
         $deleteQuery = "DELETE FROM reservations WHERE reservation_id = $reservationId";
-        $deleteResult = mysqli_query($conn, $deleteQuery);
+        $deleteResult = $con->query($deleteQuery);
 
         if ($deleteResult) {
             header("Location: reservations.php");
