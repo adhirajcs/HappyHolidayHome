@@ -4,7 +4,6 @@
 # database
 include("inc/db.php");
 
-
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     // User is not logged in, redirect to login page
@@ -18,15 +17,14 @@ $query = "SELECT reservations.*, holiday_homes.name, holiday_homes.image_path
           FROM reservations 
           INNER JOIN holiday_homes ON reservations.home_id = holiday_homes.home_id 
           WHERE reservations.user_id = $userId";
-$result = mysqli_query($conn, $query);
+$result = $con->query($query);
 
 $reservations = array();
-if ($result && mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
         $reservations[] = $row;
     }
 }
-
 ?>
 
 <!DOCTYPE html>

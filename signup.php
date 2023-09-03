@@ -3,7 +3,6 @@
 # database
 include("inc/db.php");
 
-
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -13,19 +12,19 @@ if (isset($_POST['save'])) {
 
     // Check if the email or phone number already exists in the database
     $checkQuery = "SELECT * FROM users WHERE email = '$email' OR phone = '$phone'";
-    $result = mysqli_query($conn, $checkQuery);
+    $result = $con->query($checkQuery);
 
-    if (mysqli_num_rows($result) > 0) {
+    if ($result->num_rows > 0) {
         $registrationError = "An account with the same email or phone number already exists.";
     } else {
         // Perform password validation and hashing
         if ($password === $confirmPassword) {
             $password = hash('sha256', $password);
-            
+
             $insertQuery = "INSERT INTO users (name, email, phone, password) 
                             VALUES ('$name', '$email', '$phone', '$password')";
-            
-            if (mysqli_query($conn, $insertQuery)) {
+
+            if ($con->query($insertQuery)) {
                 // Registration successful
                 $_SESSION['registrationSuccess'] = true;
                 header("Location: login.php");
@@ -39,6 +38,7 @@ if (isset($_POST['save'])) {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

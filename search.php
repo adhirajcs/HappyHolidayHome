@@ -1,5 +1,4 @@
 <?php
-
 # database
 include("inc/db.php");
 
@@ -15,19 +14,18 @@ if (isset($_GET['location'], $_GET['checkIn'], $_GET['checkOut'])) {
 
     // Construct the query
     $query = "SELECT * FROM holiday_homes WHERE location LIKE '%$location%' AND availability_start <= '$checkIn' AND availability_end >= '$checkOut'";
-    $result = mysqli_query($conn, $query);
+    $result = $con->query($query);
 
     if (!$result) {
-        $searchError = "Error fetching results: " . mysqli_error($conn);
+        $searchError = "Error fetching results: " . $con->error;
     } else {
         // Fetch search results
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = $result->fetch_assoc()) {
             $searchResults[] = $row;
         }
-        mysqli_free_result($result);
+        $result->free();
     }
 }
-
 ?>
 
 <!DOCTYPE html>
