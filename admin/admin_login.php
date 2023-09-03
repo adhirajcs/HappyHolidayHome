@@ -73,12 +73,12 @@ if (isset($_POST['login'])) {
     <div class="container mt-5">
     <form method="POST" action="" class="text-center">
         <h2>Admin Login</h2>
-        <div class="form-group">
+        <div class="form-group" style="text-align: left;">
             <label for="admin_email">Email:</label>
             <input type="email" class="form-control" id="admin_email" name="admin_email" required>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="text-align: left;">
             <label for="admin_password">Password:</label>
             <input type="password" class="form-control" id="admin_password" name="admin_password" required>
         </div>
@@ -99,23 +99,7 @@ if (isset($_POST['login'])) {
 
 
     <!-- Footer -->
-    <footer class="navbar navbar-expand-lg navbar-dark bg-primary footer">
-    <div class="container d-flex flex-column align-items-center">
-        <div class="footer-info text-center">
-            <p style="font-weight: bold; margin: auto;">HappyHolidayHome
-                <br>Made with ❤️ by Adhiraj Saha</p>
-            <br>
-            <p>Connect with me on:</p>
-            <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-2x fa-linkedin" style="color: #ffffff;"></i>
-            </a>
-            &nbsp;
-            <a href="https://github.com/adhirajcs" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-2x fa-github" style="color: #ffffff;"></i>
-            </a>
-        </div>
-    </div>
-</footer>
+    <?php include("inc/admin_footer.php"); ?>
 
 
     <!-- Latest compiled JavaScript -->
