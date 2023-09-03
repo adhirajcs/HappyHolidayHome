@@ -65,56 +65,43 @@ if (isset($_POST['submit'])) {
     <?php include("inc/admin_header.php"); ?>
 
     <!-- Main Content -->
-    <div class="container mt-5 mb-5">
-        <form method="POST" action="">
-            <h2>Admin Signup</h2></legend>
-            <div class="form-group">
-                <label for="admin_name">Name:</label>
-                <input type="text" class="form-control" id="admin_name" name="admin_name" required>
-            </div>
+    <div class="container mt-5">
+    <form method="POST" action="" class="text-center">
+        <h2>Admin Signup</h2>
+        <div class="form-group" style="text-align: left;">
+            <label for="admin_name">Name:</label>
+            <input type="text" class="form-control" id="admin_name" name="admin_name" required>
+        </div>
 
-            <div class="form-group">
-                <label for="admin_email">Email:</label>
-                <input type="email" class="form-control" id="admin_email" name="admin_email" required>
-            </div>
+        <div class="form-group" style="text-align: left;">
+            <label for="admin_email">Email:</label>
+            <input type="email" class="form-control" id="admin_email" name="admin_email" required>
+        </div>
 
-            <div class="form-group">
-                <label for="admin_password">Password:</label>
-                <input type="password" class="form-control" id="admin_password" name="admin_password" required>
-            </div>
+        <div class="form-group" style="text-align: left;">
+            <label for="admin_password">Password:</label>
+            <input type="password" class="form-control" id="admin_password" name="admin_password" required>
+        </div>
 
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password:</label>
-                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
-            </div>
-            <?php
-            if (isset($registrationError)) {
-                echo "<p class='error' style='color: red; font-weight: bold;'>$registrationError</p>";
-            }
-            ?>
+        <div class="form-group" style="text-align: left;">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+        </div>
+        <?php
+        if (isset($registrationError)) {
+            echo "<p class='error' style='color: red; font-weight: bold;'>$registrationError</p>";
+        }
+        ?>
+        <div class="d-grid gap-2">
             <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
             <button type="reset" name="reset" class="btn btn-danger">Cancel</button>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
+
 
     <!-- Footer -->
-    <footer class="navbar navbar-expand-lg navbar-dark bg-primary footer">
-    <div class="container d-flex flex-column align-items-center">
-        <div class="footer-info text-center">
-            <p style="font-weight: bold; margin: auto;">HappyHolidayHome
-                <br>Made with ❤️ by Adhiraj Saha</p>
-            <br>
-            <p>Connect with me on:</p>
-            <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-2x fa-linkedin" style="color: #ffffff;"></i>
-            </a>
-            &nbsp;
-            <a href="https://github.com/adhirajcs" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-2x fa-github" style="color: #ffffff;"></i>
-            </a>
-        </div>
-    </div>
-</footer>
+    <?php include("inc/admin_footer.php"); ?>
 
 
     <!-- Latest compiled JavaScript -->

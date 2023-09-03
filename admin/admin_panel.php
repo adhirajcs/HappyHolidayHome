@@ -73,23 +73,7 @@ $adminName = $_SESSION['admin_name'];
     </div>
 
     <!-- Footer -->
-    <footer class="navbar navbar-expand-lg navbar-dark bg-primary footer" style="position: absolute; bottom: 0; width: 100%;">
-        <div class="container d-flex flex-column align-items-center">
-            <div class="footer-info text-center">
-                <p style="font-weight: bold; margin: auto;">HappyHolidayHome
-                    <br>Made with ❤️ by Adhiraj Saha</p>
-                <br>
-                <p>Connect with me on:</p>
-                <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-2x fa-linkedin" style="color: #ffffff;"></i>
-                </a>
-                &nbsp;
-                <a href="https://github.com/adhirajcs" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-2x fa-github" style="color: #ffffff;"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+    <?php include("inc/admin_footer.php"); ?>
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
