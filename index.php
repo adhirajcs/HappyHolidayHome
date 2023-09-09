@@ -44,6 +44,7 @@ include("inc/db.php");
             echo "<p class='error'>$searchError</p>";
         }
         ?>
+
     </div>
     
     <!-- Footer -->

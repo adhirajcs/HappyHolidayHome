@@ -13,7 +13,7 @@ if (isset($_GET['location'], $_GET['checkIn'], $_GET['checkOut'])) {
     $checkOut = $_GET['checkOut'];
 
     // Construct the query
-    $query = "SELECT * FROM holiday_homes WHERE location LIKE '%$location%' AND availability_start <= '$checkIn' AND availability_end >= '$checkOut'";
+    $query = "SELECT * FROM holiday_homes WHERE location LIKE '%$location%' AND availability_status = 'available'";
     $result = $con->query($query);
 
     if (!$result) {
@@ -21,7 +21,22 @@ if (isset($_GET['location'], $_GET['checkIn'], $_GET['checkOut'])) {
     } else {
         // Fetch search results
         while ($row = $result->fetch_assoc()) {
-            $searchResults[] = $row;
+            // Check availability for the given check-in and check-out dates
+            $homeId = $row['home_id'];
+            $availabilityQuery = "SELECT COUNT(*) as count FROM reservations WHERE home_id = $homeId AND check_in_date <= '$checkOut' AND check_out_date >= '$checkIn'";
+            $availabilityResult = $con->query($availabilityQuery);
+
+            if ($availabilityResult) {
+                $availabilityRow = $availabilityResult->fetch_assoc();
+                if ($availabilityRow['count'] == 0) {
+                    // Home is available for the selected dates
+                    $searchResults[] = $row;
+                }
+                $availabilityResult->free();
+            } else {
+                $searchError = "Error checking availability: " . $con->error;
+                break;
+            }
         }
         $result->free();
     }
@@ -59,16 +74,12 @@ if (isset($_GET['location'], $_GET['checkIn'], $_GET['checkOut'])) {
                 echo "<h2>{$row['name']}</h2>";
                 echo "<p class='label'>Location:</p>";
                 echo "<p>{$row['location']}</p>";
-                echo "<p class='label'>Availability:</p>";
-                echo "<p>{$row['availability_start']} to {$row['availability_end']}</p>";
                 echo "<p class='label'>Price:</p>";
                 echo "<p>₹{$row['price']}</p>";
                 echo "<p class='label'>Rating:</p>";
                 echo "<p>{$row['rating']}</p>";
-                echo "<p class='label'>Description:</p>";
-                echo "<p>{$row['description']}</p>";
                 echo "<div class='buttons'>";
-                echo "<a href='reserve.php?home_id={$row['home_id']}' class='btn'>Book Now</a>";
+                echo "<a href='reserve.php?home_id={$row['home_id']}&checkIn=$checkIn&checkOut=$checkOut' class='btn'>Book Now</a>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
