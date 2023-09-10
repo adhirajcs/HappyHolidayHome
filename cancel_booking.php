@@ -17,12 +17,24 @@ if (isset($_POST['cancel_booking'])) {
     $checkResult = $con->query($checkQuery);
 
     if ($checkResult && $checkResult->num_rows === 1) {
+        // Fetch the associated home_id
+        $reservationRow = $checkResult->fetch_assoc();
+        $homeId = $reservationRow['home_id'];
+
         // Delete the reservation
         $deleteQuery = "DELETE FROM reservations WHERE reservation_id = $reservationId";
         $deleteResult = $con->query($deleteQuery);
 
         if ($deleteResult) {
-            header("Location: reservations.php");
+            // Update the availability_status to "available" for the associated home
+            $updateAvailabilityQuery = "UPDATE holiday_homes SET availability_status = 'available' WHERE home_id = $homeId";
+            $updateAvailabilityResult = $con->query($updateAvailabilityQuery);
+
+            if ($updateAvailabilityResult) {
+                header("Location: reservations.php");
+            } else {
+                echo "Error updating availability status.";
+            }
         } else {
             echo "Error canceling booking.";
         }

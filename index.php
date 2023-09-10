@@ -19,6 +19,20 @@ include("inc/db.php");
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <script>
+        function validateDates() {
+            const checkInDate = new Date(document.forms["searchForm"]["checkIn"].value);
+            const checkOutDate = new Date(document.forms["searchForm"]["checkOut"].value);
+
+            if (checkInDate > checkOutDate) {
+                alert("Check-in date cannot be greater than the check-out date.");
+                return false;
+            }
+            
+            return true;
+        }
+    </script>
 </head>
 
 <body>
@@ -27,7 +41,7 @@ include("inc/db.php");
     <?php include("inc/header.php"); ?>
     
     <div class="container">
-        <form action="search.php" method="GET" class="form">
+        <form name="searchForm" action="search.php" method="GET" class="form" onsubmit="return validateDates();">
             <label>Location:</label>
             <input type="text" name="location" placeholder="Your Location" required>
             <label>Check-In:</label>
@@ -38,12 +52,6 @@ include("inc/db.php");
             <button type="submit" name="search" class="btn btn-success">Search</button>
             <button type="reset" name="reset" class="btn btn-danger">Reset</button>
         </form>
-
-        <?php
-        if (isset($searchError)) {
-            echo "<p class='error'>$searchError</p>";
-        }
-        ?>
     </div>
     
     <!-- Footer -->

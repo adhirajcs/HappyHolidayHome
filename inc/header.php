@@ -17,7 +17,7 @@
                         <?php echo $_SESSION['name']; ?>
                     </span>
                     <ul class="dropdown-content">
-                        <li><a href="#">My Profile</a></li>
+                        <li><a href="profile.php">My Profile</a></li>
                         <li><a href="reservations.php">My Reservations</a></li>
                         <li><a href="logout.php">Logout</a></li>
                     </ul>

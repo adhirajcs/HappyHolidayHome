@@ -29,42 +29,60 @@ if (isset($_GET['home_id'])) {
     }
 }
 
+// Fetch the check-in and check-out dates from the query parameters
+$checkIn = isset($_GET['checkIn']) ? $_GET['checkIn'] : "";
+$checkOut = isset($_GET['checkOut']) ? $_GET['checkOut'] : "";
+
 // Check if the reservation form has been submitted
 if (isset($_POST['home_id'], $_POST['checkIn'], $_POST['checkOut'])) {
     $homeId = $_POST['home_id'];
     $checkIn = $_POST['checkIn'];
     $checkOut = $_POST['checkOut'];
 
-    // Calculate total price based on selected home's price and booking duration
-    $query = "SELECT price FROM holiday_homes WHERE home_id = $homeId";
-    $result = $con->query($query);
-
-    if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $price = $row['price'];
-        $bookingDuration = strtotime($checkOut) - strtotime($checkIn);
-        $totalPrice = ($bookingDuration / (60 * 60 * 24)) * $price;
-
-        // Insert reservation into the database
-        $insertQuery = "INSERT INTO reservations (user_id, home_id, check_in_date, check_out_date, total_price) 
-                        VALUES ($user_id, $homeId, '$checkIn', '$checkOut', $totalPrice)";
-        $insertResult = $con->query($insertQuery);
-
-        if ($insertResult) {
-            // Successful reservation
-            $reservationSuccess = true;
-
-            // Redirect to reservations.php after successful reservation
-            header("Location: reservations.php");
-        } else {
-            $reservationError = "Error creating reservation: " . $con->error;
-        }
+    // Check if check-in date is greater than check-out date
+    if (strtotime($checkIn) > strtotime($checkOut)) {
+        $reservationError = "Check-in date cannot be greater than the check-out date.";
     } else {
-        $reservationError = "Error fetching home price: " . $con->error;
+        // Calculate total price based on selected home's price and booking duration
+        $query = "SELECT price FROM holiday_homes WHERE home_id = $homeId";
+        $result = $con->query($query);
+
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $price = $row['price'];
+            $bookingDuration = strtotime($checkOut) - strtotime($checkIn);
+            $totalPrice = ($bookingDuration / (60 * 60 * 24)) * $price;
+
+            // Insert reservation into the database
+            $insertQuery = "INSERT INTO reservations (user_id, home_id, check_in_date, check_out_date, total_price) 
+                            VALUES ($user_id, $homeId, '$checkIn', '$checkOut', $totalPrice)";
+            $insertResult = $con->query($insertQuery);
+
+            if ($insertResult) {
+                // Successful reservation
+                $reservationSuccess = true;
+
+                // Update the availability_status to "not_available"
+                $updateAvailabilityQuery = "UPDATE holiday_homes SET availability_status = 'not_available' WHERE home_id = $homeId";
+                $updateAvailabilityResult = $con->query($updateAvailabilityQuery);
+
+                if (!$updateAvailabilityResult) {
+                    // Handle the update error if needed
+                    $reservationError = "Error updating availability status: " . $con->error;
+                } else {
+                    // Redirect to reservations.php after successful reservation
+                    header("Location: reservations.php");
+                }
+            } else {
+                $reservationError = "Error creating reservation: " . $con->error;
+            }
+        } else {
+            $reservationError = "Error fetching home price: " . $con->error;
+        }
     }
 }
-?>
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,26 +111,34 @@ if (isset($_POST['home_id'], $_POST['checkIn'], $_POST['checkOut'])) {
         echo "<h2>{$selectedHome['name']}</h2>";
         echo "<p class='label'>Location:</p>";
         echo "<p>{$selectedHome['location']}</p>";
-        echo "<p class='label'>Availability:</p>";
-        echo "<p><i>From</i> &nbsp; {$selectedHome['availability_start']} &nbsp; <i>to</i> &nbsp; {$selectedHome['availability_end']}</p>";
 
-            echo "</div>";
-            echo "</div>";
+        echo "<p class='label'>Description:</p>";
+        echo "<p>{$selectedHome['description']}</p>";
 
-            if (isset($reservationSuccess)) {
-                echo "<p class='success'>Please Fill Up The Following Information!</p>";
-            } elseif (isset($reservationError)) {
-                echo "<p class='error'>$reservationError</p>";
-            }
+        echo "<p class='label'>Ratings:</p>";
+        echo "<p>{$selectedHome['rating']}</p>";
 
-            // Reservation form
+
+        echo "</div>";
+        echo "</div>";
+
+        echo "<p class='success'>Please Fill Up The Following Information!</p>";
+
+        // Reservation form
         echo "<form method='post' action=''>";
         echo "<input type='hidden' name='home_id' value='{$selectedHome['home_id']}'>";
+        echo "<input type='hidden' name='checkIn' value='$checkIn'>";
+        echo "<input type='hidden' name='checkOut' value='$checkOut'>";
         echo "<label for='checkIn'>Check-in Date:</label>";
-        echo "<input type='date' name='checkIn' required>";
+        echo "<input type='date' name='checkIn' required value='$checkIn'>";
         echo "<label for='checkOut'>Check-out Date:</label>";
-        echo "<input type='date' name='checkOut' required>";
+        echo "<input type='date' name='checkOut' required value='$checkOut'>";
+        if (isset($reservationError)) {
+            echo "<p class='error' style='font-weight: bold'>$reservationError</p>";
+        }
+
         echo "<button type='submit' class='btn'>Reserve Now</button>";
+        echo "<button type='reset' class='btn'>Reset</button>";
         echo "</form>";
     } elseif ($reservationError) {
         echo "<p class='error'>$reservationError</p>";
