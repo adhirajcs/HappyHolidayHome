@@ -82,7 +82,7 @@ if (isset($_POST['save'])) {
             ?>
             <button type="submit" name="save" class="btn btn-success">Sign Up</button>
             <button type="reset" name="reset" class="btn btn-danger">Cancel</button>
-            <p class="no-account">Already have Account? <a href="login.php">Login here</a></p><br>
+            <p class="no-account">Already have Account? <a href="login.php">Login here</a></p>
             <p class="no-account">Are you an Admin? <a href="admin/admin_signup.php">Admin Sign Up</a></p>
         </form>
     </div>
