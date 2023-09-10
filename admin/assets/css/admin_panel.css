@@ -6,3 +6,38 @@ body.dark-mode {
 body {
     background-color: lightblue;
 }
+
+/* Sidebar Styles */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #333;
+    transition: left 0.3s;
+}
+
+.sidebar.show {
+    left: 0;
+}
+
+/* Sidebar Content Styles */
+.sidebar-content {
+    padding: 20px;
+    color: #fff;
+}
+
+/* Toggle Sidebar Button Styles */
+#toggle-sidebar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+}
+
+/* Adjust the main content area */
+.main-content {
+    margin-left: 250px;
+    padding: 15px;
+}
