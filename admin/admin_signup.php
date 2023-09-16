@@ -108,7 +108,7 @@ if (isset($_POST['submit'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom JavaScript for theme toggle -->
-    <script src="assets/js/admin_signup_login.js"></script>
+    <script src="assets/js/dark_mode.js"></script>
     <script src="assets/js/header_footer.js"></script>
 
 </body>
