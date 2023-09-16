@@ -8,9 +8,6 @@ if (!isset($_SESSION['admin_loggedin']) || $_SESSION['admin_loggedin'] !== true)
     exit();
 }
 
-# Get the admin's name from the session
-$adminName = $_SESSION['admin_name'];
-
 # Fetch holiday home data from the database
 $sqlHolidayHomes = "SELECT * FROM holiday_homes";
 $resultHolidayHomes = $con->query($sqlHolidayHomes);
@@ -49,39 +46,7 @@ if ($resultHolidayHomes->num_rows > 0) {
     </button>
 
     <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
-        <div class="sidebar-content">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <div class="d-flex justify-content-end">
-                        <a class="navbar-brand" href="../index.php">
-                            <img src="assets/img/admin_logo.jpg" alt="HappyHolidayHome" class="website-icon" style="max-width: 150px;">
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="admin_dashboard.php">
-                        Dashboard
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="edit_holidayhomes.php">
-                        Holiday Homes
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="view_users.php">
-                        Users
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="page2.php">
-                        Reservations
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <?php include("inc/admin_side_bar.php"); ?>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -118,8 +83,7 @@ if ($resultHolidayHomes->num_rows > 0) {
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal_<?php echo $home['home_id']; ?>">
                                     Edit
                                 </button>
-                                <a href="delete_holidayhome.php?id=<?php echo $home['home_id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this holiday home?')">Delete</a>
-
+                                <a href="delete_reservation.php?id=<?php echo $reservation['reservation_id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this reservation?')">Delete</a>
                             </td>
                             </tr>
                         <?php endforeach; ?>
