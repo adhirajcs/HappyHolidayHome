@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
             $_SESSION['admin_loggedin'] = true;
             $_SESSION['admin_id'] = $adminData['admin_id'];
             $_SESSION['admin_name'] = $adminData['admin_name'];
-            header("Location: admin_panel.php"); 
+            header("Location: admin_dashboard.php"); 
             exit();
         } else {
             // Login failed
@@ -106,7 +106,7 @@ if (isset($_POST['login'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom JavaScript for theme toggle -->
-    <script src="assets/js/admin_signup_login.js"></script>
+    <script src="assets/js/dark_mode.js"></script>
     <script src="assets/js/header_footer.js"></script>
 </body>
 </html>

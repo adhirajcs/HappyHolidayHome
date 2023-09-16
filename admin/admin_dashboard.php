@@ -35,46 +35,24 @@ $reservedHomeCount = $resultReservedHomeCount->fetch_assoc()['reserved_count'];
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">   
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="assets/img/admin_logo.jpg">
-    <link rel="stylesheet" href="assets/css/admin_panel.css">
+    <link rel="stylesheet" href="assets/css/admin_dashboard.css">
 </head>
 <body>
     
-
-    <!-- Toggle Sidebar Button -->
-    <button id="toggle-sidebar" class="btn btn-primary">Toggle Sidebar</button>
-
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
-        <div class="sidebar-content">
-            <h2>Sidebar Content</h2>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">
-                        Dashboard
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="page1.php">
-                        Page 1
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="page2.php">
-                        Page 2
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
     <!-- Header -->
     <?php include("inc/admin_header.php"); ?>
 
-    
 
+    <!-- Toggle Sidebar Button -->
+    <button id="toggle-sidebar" class="btn btn-primary">
+    <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <?php include("inc/admin_side_bar.php"); ?>
+    
     <!-- Main Content -->
     <main class="main-content">
         <div class="container-fluid">
@@ -87,7 +65,8 @@ $reservedHomeCount = $resultReservedHomeCount->fetch_assoc()['reserved_count'];
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Users</h5>
+                            <i class="fas fa-users fa-5x"></i>
+                            <h5 class="card-title">Total no. of Users</h5>
                             <p class="card-text"><?php echo $userCount; ?></p>
                         </div>
                     </div>
@@ -95,7 +74,8 @@ $reservedHomeCount = $resultReservedHomeCount->fetch_assoc()['reserved_count'];
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Total Holiday Homes</h5>
+                            <i class="fas fa-home fa-5x"></i>
+                            <h5 class="card-title">Total no. of Holiday Homes</h5>
                             <p class="card-text"><?php echo $holidayHomeCount; ?></p>
                         </div>
                     </div>
@@ -103,7 +83,8 @@ $reservedHomeCount = $resultReservedHomeCount->fetch_assoc()['reserved_count'];
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Reserved Homes</h5>
+                            <i class="fas fa-calendar-check fa-5x"></i>
+                            <h5 class="card-title">Total no. of Reserved Homes</h5>
                             <p class="card-text"><?php echo $reservedHomeCount; ?></p>
                         </div>
                     </div>
@@ -113,10 +94,26 @@ $reservedHomeCount = $resultReservedHomeCount->fetch_assoc()['reserved_count'];
     </main>
 
     <!-- Footer -->
-    <?php include("inc/admin_footer.php"); ?>
+    <footer class="navbar navbar-expand-lg navbar-dark bg-primary footer" style="position: absolute; bottom: 0; width: 100%;">
+        <div class="container d-flex flex-column align-items-center">
+            <div class="footer-info text-center">
+                <p style="font-weight: bold; margin: auto;">HappyHolidayHome
+                    <br>Made with ❤️ by Adhiraj Saha</p>
+                <br>
+                <p>Connect with me on:</p>
+                <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-2x fa-linkedin" style="color: #ffffff;"></i>
+                </a>
+                &nbsp;
+                <a href="https://github.com/adhirajcs" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-2x fa-github" style="color: #ffffff;"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <!-- Custom JavaScript for theme toggle -->
-    <script src="assets/js/admin_panel.js"></script>
+    <script src="assets/js/dark_mode.js"></script>
     <script src="assets/js/header_footer.js"></script>
 
     <!-- JavaScript to toggle the sidebar -->

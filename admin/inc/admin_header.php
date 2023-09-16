@@ -14,7 +14,8 @@
                             <i class="fas fa-user"></i> <?php echo $_SESSION['admin_name']; ?>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="admin_profile.php">My Profile</a></li>
+                            <li><a class="dropdown-item" href="admin_dashboard.php">Admin Dasboard</a></li>
                             <li><a class="dropdown-item bg-danger" href="admin_logout.php">Logout</a></li>
                         </ul>
                     </div>

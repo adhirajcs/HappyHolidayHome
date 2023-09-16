@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2023 at 07:59 PM
+-- Generation Time: Sep 16, 2023 at 08:07 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -63,11 +63,11 @@ CREATE TABLE `holiday_homes` (
 --
 
 INSERT INTO `holiday_homes` (`home_id`, `name`, `location`, `availability_status`, `description`, `rating`, `image_path`, `price`) VALUES
-(1, 'Luxury villa', 'Florida', 'not_available', 'This luxury holiday home in Florida, USA is filled to the brim with an array of amazing facilities and luxury amenities. With 15,000 square feet of space, the unique mansion is just over five miles from Disneyland and has views over the world-famous Jack Nicklaus golf course. But there\'s something surprising here that may keep you indoors.', 4.0, 'assets/img/holiday-homes/Luxury-villa.jpg', 500.00),
+(1, 'Luxury villa', 'Florida', 'not_available', 'This luxury holiday home in Florida, USA is filled to the brim with an array of amazing facilities and luxury amenities. With 15,000 square feet of space, the unique mansion is just over five miles from Disneyland and has views over the world-famous Jack Nicklaus golf course. But there\'s something surprising here that may keep you indoors.', 4.0, 'assets/img/holiday-homes/Luxury-villa1.jpg', 500.00),
 (2, 'Downtown garden apartment', 'Florida', 'available', 'This modern apartment in Buena Vista, Colorado is the ideal space for a weekend getaway and holds a secret inside that\'s perfect for the active holidaymaker. With its own garden and seating area, it can sleep up to four people and has all the latest modern amenities.', 4.2, 'assets/img/holiday-homes/Downtown-garden-apartment.jpg', 400.00),
-(3, 'Luxury villa2', 'Florida', 'available', 'However, hidden deep in the house is the ultimate in luxury entertainment: a bowling alley! With two lanes, it\'s the perfect place to get competitive and even has a comfortable lounge space and TV screens so you can keep track of who\'s winning. At £2,052 ($2,608) a night, with a minimum stay of four nights, it\'ll be an expensive game of bowling. ', 4.3, 'assets/img/holiday-homes/Luxury-villa2.jpg', 300.00),
+(3, 'Luxury villa2', 'Florida', 'not_available', 'However, hidden deep in the house is the ultimate in luxury entertainment: a bowling alley! With two lanes, it\'s the perfect place to get competitive and even has a comfortable lounge space and TV screens so you can keep track of who\'s winning. At £2,052 ($2,608) a night, with a minimum stay of four nights, it\'ll be an expensive game of bowling. ', 4.3, 'assets/img/holiday-homes/Luxury-villa2.jpg', 300.00),
 (4, 'City escape', 'Florida', 'not_available', 'Designed as a break from busy city life, guests walk into a magical forest where the relaxing living room features a log stool and a fun swinging chair. The enchanting woodland doesn\'t come without modern-day amenities and includes a smart TV and air-conditioning. ', 3.9, 'assets/img/holiday-homes/City-escape.jpg', 360.00),
-(5, 'Domus Civita', 'Florida', 'available', 'Located on the first floor of the house, the living room and kitchen are full of original features including a basalt stone fireplace, terracotta floors and wooden beams, which all date from the 14th century. Overall the villa can sleep six people in three bedrooms which are surrounded by arched doorways and exposed tufa rock.', 3.7, 'assets/img/holiday-homes/Domus-Civita.jpg', 470.00);
+(6, 'Domus Civita', 'Florida', 'available', 'Located on the first floor of the house, the living room and kitchen are full of original features including a basalt stone fireplace, terracotta floors and wooden beams, which all date from the 14th century. Overall the villa can sleep six people in three bedrooms which are surrounded by arched doorways and exposed tufa rock.', 3.7, 'assets/img/holiday-homes/Domus-Civita.jpg', 470.00);
 
 -- --------------------------------------------------------
 
@@ -159,13 +159,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `holiday_homes`
 --
 ALTER TABLE `holiday_homes`
-  MODIFY `home_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `home_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
