@@ -67,12 +67,12 @@ $reservedHomeCount = $resultReservedHomeCount->fetch_assoc()['reserved_count'];
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="page1.php">
+                    <a class="nav-link" href="view_holidayhomes.php">
                         Holiday Homes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="page2.php">
+                    <a class="nav-link" href="view_users.php">
                         Users
                     </a>
                 </li>
