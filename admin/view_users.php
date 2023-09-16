@@ -46,39 +46,8 @@ if ($resultUsers->num_rows > 0) {
     </button>
 
     <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
-        <div class="sidebar-content">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <div class="d-flex justify-content-end">
-                        <a class="navbar-brand" href="../index.php">
-                            <img src="assets/img/admin_logo.jpg" alt="HappyHolidayHome" class="website-icon" style="max-width: 150px;">
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="admin_dashboard.php">
-                        Dashboard
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="view_holidayhomes.php">
-                        Holiday Homes
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="view_users.php">
-                        Users
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="view_reservations.php">
-                        Reservations
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <?php include("inc/admin_side_bar.php"); ?>
+    
 
     <!-- Main Content -->
     <main class="main-content">
@@ -111,7 +80,23 @@ if ($resultUsers->num_rows > 0) {
     </main>
 
     <!-- Footer -->
-    <!-- <?php include("inc/admin_footer.php"); ?> -->
+    <footer class="navbar navbar-expand-lg navbar-dark bg-primary footer" style="position: absolute; bottom: 0; width: 100%;">
+        <div class="container d-flex flex-column align-items-center">
+            <div class="footer-info text-center">
+                <p style="font-weight: bold; margin: auto;">HappyHolidayHome
+                    <br>Made with ❤️ by Adhiraj Saha</p>
+                <br>
+                <p>Connect with me on:</p>
+                <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-2x fa-linkedin" style="color: #ffffff;"></i>
+                </a>
+                &nbsp;
+                <a href="https://github.com/adhirajcs" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-2x fa-github" style="color: #ffffff;"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <!-- Custom JavaScript for theme toggle -->
     <script src="assets/js/dark_mode.js"></script>
