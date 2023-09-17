@@ -43,7 +43,7 @@ body {
 
 /* Table background in dark mode */
 body.dark-mode .table {
-    background-color: #173a5f;
+    background-color: #173a5f; 
     color: white;
 }
 

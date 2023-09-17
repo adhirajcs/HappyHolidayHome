@@ -1,6 +1,6 @@
 <?php
 // Include your database connection code here
-include("inc/db.php");
+include("../inc/db.php");
 
 // Check if the user is logged in, if not, redirect to the login page
 if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']) {
@@ -71,18 +71,18 @@ if (isset($_POST['changePassword'])) {
     <title>HappyHolidayHome - My Profile</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
-    <link rel="stylesheet" href="assets/css/profile.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
+    <link rel="stylesheet" href="../assets/css/profile.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
 
 </head>
 
 <body>
 
     <!-- Nav Bar -->
-    <?php include("inc/header.php"); ?>
+    <?php include("../inc/header.php"); ?>
 
     <div class="container">
         <fieldset class="profile-fieldset">
@@ -117,7 +117,7 @@ if (isset($_POST['changePassword'])) {
     </div>
 
     <!-- Footer -->
-    <?php include("inc/footer.php"); ?>
+    <?php include("../inc/footer.php"); ?>
 
 </body>
 

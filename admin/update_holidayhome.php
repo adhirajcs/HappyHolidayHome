@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin_loggedin']) || $_SESSION['admin_loggedin'] !== true)
 }
 
 # Initialize variables
-$homeId = $_POST['home_id']; // Get home_id from the form
+$homeId = $_POST['home_id'];
 
 # Retrieve form data (add more fields as needed)
 $name = $_POST["name"];
@@ -27,12 +27,12 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
     // Check if the uploaded file is an image
     if (strpos($fileType, 'image') !== false) {
         // Generate a unique filename for the uploaded image
-        $uniqueFilename = $_FILES['image']['name'];
+        $Filename = $_FILES['image']['name'];
 
         // Define the directory where the uploaded images will be stored
-        $uploadDirectory = "../assets/img/holiday-homes/"; // Update this path to your image directory
+        $uploadDirectory = "../assets/img/holiday-homes/"; 
 
-        $filePath = $uploadDirectory . $uniqueFilename;
+        $filePath = $uploadDirectory . $Filename;
 
         // Move the uploaded file to the image directory
         if (move_uploaded_file($fileTmpName, $filePath)) {

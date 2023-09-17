@@ -1,6 +1,6 @@
 <?php
 # database
-include("inc/db.php");
+include("../inc/db.php");
 
 $reservationSuccess = false;
 $reservationError = "";
@@ -92,15 +92,15 @@ if (isset($_POST['home_id'], $_POST['checkIn'], $_POST['checkOut'])) {
     <title>Reserve - HappyHolidayHome</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
-    <link rel="stylesheet" href="assets/css/reserve.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
+    <link rel="stylesheet" href="../assets/css/reserve.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
 </head>
 <body>
     <!-- Nav Bar -->
-    <?php include("inc/header.php"); ?>
+    <?php include("../inc/header.php"); ?>
 
     <div class="container">
     <?php
@@ -149,6 +149,6 @@ if (isset($_POST['home_id'], $_POST['checkIn'], $_POST['checkOut'])) {
     </div>
 
     <!-- Footer -->
-    <?php include("inc/footer.php"); ?>
+    <?php include("../inc/footer.php"); ?>
 </body>
 </html>

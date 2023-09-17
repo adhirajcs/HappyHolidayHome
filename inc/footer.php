@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="footer-content">
         <a href="index.php">
-            <img src="assets/img/logo.jpg" alt="Logo" style="width: 100px; height: auto;">
+            <img src="../assets/img/logo.jpg" alt="Logo" style="width: 100px; height: auto;">
         </a>
         <div class="footer-links">
             <a href="index.php">Home</a>
