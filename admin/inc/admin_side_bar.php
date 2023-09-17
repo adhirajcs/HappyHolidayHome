@@ -4,7 +4,7 @@
                 <li class="nav-item">
                     <div class="d-flex justify-content-end">
                         <a class="navbar-brand" href="../index.php">
-                            <img src="assets/img/admin_logo.jpg" alt="HappyHolidayHome" class="website-icon" style="max-width: 150px;">
+                            <img src="../assets/img/logo.jpg" alt="HappyHolidayHome" class="website-icon" style="max-width: 150px;">
                         </a>
                     </div>
                 </li>

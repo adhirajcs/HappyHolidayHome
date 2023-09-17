@@ -2,7 +2,7 @@
 
 
 # database
-include("inc/db.php");
+include("../inc/db.php");
 
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
@@ -35,15 +35,15 @@ if ($result && $result->num_rows > 0) {
     <title>Reserve - HappyHolidayHome</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
-    <link rel="stylesheet" href="assets/css/reservation.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
+    <link rel="stylesheet" href="../assets/css/reservation.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
 </head>
 <body>
     <!-- Nav Bar -->
-    <?php include("inc/header.php"); ?>
+    <?php include("../inc/header.php"); ?>
 
     <div class="container">
     <h1 style="margin-top: 50px;">My Reservations</h1>
@@ -73,6 +73,6 @@ if ($result && $result->num_rows > 0) {
 </div>
 
     <!-- Footer -->
-    <?php include("inc/footer.php"); ?>
+    <?php include("../inc/footer.php"); ?>
 </body>
 </html>

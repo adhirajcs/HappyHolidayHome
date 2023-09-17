@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="logo">
             <a href="index.php">
-                <img src="assets/img/logo.jpg" alt="Logo" style="width: 30px; height: auto;">
+                <img src="../assets/img/logo.jpg" alt="Logo" style="width: 30px; height: auto;">
             </a>
         </div>
         <ul class="nav-links">
@@ -13,7 +13,7 @@
                 <li><a href="contact.php">Contact Us</a></li>
                 <li class="dropdown">
                     <span class="profile-info">
-                        <img src="assets/img/user.png" alt="Profile Icon" class="profile-icon">
+                        <img src="../assets/img/user.png" alt="Profile Icon" class="profile-icon">
                         <?php echo $_SESSION['name']; ?>
                     </span>
                     <ul class="dropdown-content">

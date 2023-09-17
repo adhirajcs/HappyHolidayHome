@@ -1,8 +1,8 @@
 <?php
 
 # database
-include("inc/db.php");
-include("inc/api.php");
+include("../inc/db.php");
+include("../inc/api.php");
 
 if (isset($_POST['login'])) {
     $email = $_POST['loginEmail'];
@@ -62,18 +62,18 @@ if (isset($_POST['login'])) {
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
-    <link rel="stylesheet" href="assets/css/signup-login.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
+    <link rel="stylesheet" href="../assets/css/signup-login.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
     
 </head>
 
 <body>
 
     <!-- Nav Bar -->
-    <?php include("inc/header.php"); ?>
+    <?php include("../inc/header.php"); ?>
 
     <div class="container">
         <form action="" method="POST" class="form">
@@ -90,14 +90,14 @@ if (isset($_POST['login'])) {
             <button type="submit" name="login" class="btn btn-success">Login</button>
             <button type="reset" name="reset" class="btn btn-danger">Cancel</button>
             <p class="no-account">Don't have an account? <a href="signup.php">Sign up here</a></p>
-            <p class="no-account">Are you an Admin? <a href="admin/admin_login.php">Admin Login</a></p>
+            <p class="no-account">Are you an Admin? <a href="../admin/admin_login.php">Admin Login</a></p>
         </form>
 
 
     </div>
     
     <!-- Footer -->
-    <?php include("inc/footer.php"); ?>
+    <?php include("../inc/footer.php"); ?>
 </body>
 
 </html>

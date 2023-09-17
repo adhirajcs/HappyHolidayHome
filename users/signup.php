@@ -1,7 +1,7 @@
 <?php
 
 # database
-include("inc/db.php");
+include("../inc/db.php");
 
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
@@ -49,18 +49,18 @@ if (isset($_POST['save'])) {
     <title>HappyHolidayHome - Sign Up</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
-    <link rel="stylesheet" href="assets/css/signup-login.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
+    <link rel="stylesheet" href="../assets/css/signup-login.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
     
 </head>
 
 <body">
      
      <!-- Nav Bar -->
-    <?php include("inc/header.php"); ?>
+    <?php include("../inc/header.php"); ?>
     <br><br><br>
 
     <div class="container">
@@ -83,12 +83,12 @@ if (isset($_POST['save'])) {
             <button type="submit" name="save" class="btn btn-success">Sign Up</button>
             <button type="reset" name="reset" class="btn btn-danger">Cancel</button>
             <p class="no-account">Already have Account? <a href="login.php">Login here</a></p>
-            <p class="no-account">Are you an Admin? <a href="admin/admin_signup.php">Admin Sign Up</a></p>
+            <p class="no-account">Are you an Admin? <a href="../admin/admin_signup.php">Admin Sign Up</a></p>
         </form>
     </div>
 
     <!-- Footer -->
-    <?php include("inc/footer.php"); ?>
+    <?php include("../inc/footer.php"); ?>
 </body>
 
 </html>

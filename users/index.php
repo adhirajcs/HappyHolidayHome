@@ -1,7 +1,7 @@
 <?php
 
 # database
-include("inc/db.php");
+include("../inc/db.php");
 
 ?>
 
@@ -14,11 +14,11 @@ include("inc/db.php");
     <title>HappyHolidayHome - Home</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/logo.jpg">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
     
     <script>
         function validateDates() {
@@ -38,7 +38,7 @@ include("inc/db.php");
 <body>
     
     <!-- Nav Bar -->
-    <?php include("inc/header.php"); ?>
+    <?php include("../inc/header.php"); ?>
     
     <div class="container">
         <form name="searchForm" action="search.php" method="GET" class="form" onsubmit="return validateDates();">
@@ -55,7 +55,7 @@ include("inc/db.php");
     </div>
     
     <!-- Footer -->
-    <?php include("inc/footer.php"); ?>
+    <?php include("../inc/footer.php"); ?>
 </body>
 
 </html>

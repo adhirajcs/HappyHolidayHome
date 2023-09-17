@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="../index.php">
-            <img src="assets/img/admin_logo.jpg" alt="HappyHolidayHome" class="website-icon" style="max-width: 50px;">
+        <a class="navbar-brand" href="../users/index.php">
+            <img src="../assets/img/logo.jpg" alt="HappyHolidayHome" class="website-icon" style="max-width: 50px;">
         </a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
