@@ -60,7 +60,7 @@ if (isset($_POST['login'])) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
 
-    <link rel="icon" type="image/x-icon" href="assets/img/admin_logo.jpg">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
     <link rel="stylesheet" href="assets/css/admin_signup_login.css">
 
 </head>

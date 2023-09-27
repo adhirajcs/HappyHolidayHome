@@ -41,10 +41,18 @@ body {
     padding: 15px;
 }
 
+body .table>:not(caption)>*>* {
+    background: none !important;
+}
+
+body .table {
+    --bs-table-color: none;
+}
+
 /* Table background in dark mode */
 body.dark-mode .table {
-    background-color: #173a5f;
-    color: white;
+    background-color: #173a5f !important;
+    color: white !important;
 }
 
 /* Modal background in dark mode */
