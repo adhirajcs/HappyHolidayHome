@@ -83,7 +83,7 @@ if ($resultHolidayHomes->num_rows > 0) {
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal_<?php echo $home['home_id']; ?>">
                                     Edit
                                 </button>
-                                <a href="delete_reservation.php?id=<?php echo $reservation['reservation_id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this reservation?')">Delete</a>
+                                <a href="delete_holidayhome.php?id=<?php echo $home['home_id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this holiday home?')">Delete</a>
                             </td>
                             </tr>
                         <?php endforeach; ?>
