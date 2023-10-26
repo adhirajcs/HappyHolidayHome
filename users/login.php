@@ -1,55 +1,70 @@
 <?php
-
 # database
 include("../inc/db.php");
 include("../inc/api.php");
+
+// Include PHPMailer
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
 
 if (isset($_POST['login'])) {
     $email = $_POST['loginEmail'];
     $password = $_POST['loginPassword'];
 
     $secretKey = $sk;
-    $resposnseKey = $_POST['g-recaptcha-response'];
+    $responseKey = $_POST['g-recaptcha-response'];
     $UserIP = $_SERVER['REMOTE_ADDR'];
-    $url="https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$resposnseKey&remoteip=$UserIP";
+    $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$UserIP";
 
     $response = file_get_contents($url);
     $response = json_decode($response);
 
-    if($response->success) {
-        # hashing the password
-        $password = hash('sha256', $password);
-
-        $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    if ($response->success) {
+        // Check if the email exists in the database
+        $sql = "SELECT * FROM users WHERE email = '$email'";
         $rs = $con->query($sql);
 
         if ($rs->num_rows == 1) {
-            // Login successful
-            session_start();
-            
-            $userData = $rs->fetch_assoc();
-            $userName = $userData['name'];
-            $userId = $userData['user_id'];
+            // Generate OTP
+            $otp = rand(100000, 999999);
 
-            $_SESSION['user_id'] = $userId;
-            $_SESSION['name'] = $userName;
-            $_SESSION['loggedin'] = true;
-            
-            header("Location: index.php");
-            exit();
+            // Store OTP in the database
+            $insertOtp = "INSERT INTO otp (user_email, otp_code, timestamp) VALUES ('$email', $otp, NOW())";
+            $con->query($insertOtp);
+
+            // Send OTP via email
+            $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'adhirajfirst@gmail.com';
+            $mail->Password = $app_password;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
+
+            $mail->setFrom('adhirajfirst@gmail.com', 'HappyHolidayHome');
+            $mail->addAddress($email);
+
+            $mail->Subject = 'Your OTP for Login';
+            $mail->Body = "Your OTP is: $otp";
+
+            if ($mail->send()) {
+                // Redirect to verify_otp.php with email parameter
+                header("Location: verify_otp.php?email=$email");
+                exit();
+            } else {
+                $loginError = "Failed to send OTP. Please try again later.";
+            }
         } else {
             // Login failed
             $loginError = "Invalid email or password";
         }
-    }
-    else {
+    } else {
         $loginError = "Invalid Captcha! Please try again!!!";
     }
-
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +86,6 @@ if (isset($_POST['login'])) {
 </head>
 
 <body>
-
     <!-- Nav Bar -->
     <?php include("../inc/header.php"); ?>
 
@@ -92,12 +106,11 @@ if (isset($_POST['login'])) {
             <p class="no-account">Don't have an account? <a href="signup.php">Sign up here</a></p>
             <p class="no-account">Are you an Admin? <a href="../admin/admin_login.php">Admin Login</a></p>
         </form>
-
-
     </div>
     
     <!-- Footer -->
     <?php include("../inc/footer.php"); ?>
+
 </body>
 
 </html>

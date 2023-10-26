@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2023 at 07:23 PM
+-- Generation Time: Oct 26, 2023 at 08:08 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -75,6 +75,19 @@ INSERT INTO `holiday_homes` (`home_id`, `name`, `location`, `availability_status
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `otp`
+--
+
+CREATE TABLE `otp` (
+  `id` int(11) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `otp_code` int(11) NOT NULL,
+  `timestamp` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reservations`
 --
 
@@ -114,7 +127,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `name`, `email`, `phone`, `password`) VALUES
-(5, 'Adhiraj', 'a@gmail.com', 2147483647, '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4');
+(5, 'Adhiraj', 'a@gmail.com', 2147483647, '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4'),
+(7, 'adhi', 'adhiraj.saha.mca24@heritageit.edu.in', 2147483647, '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4');
 
 --
 -- Indexes for dumped tables
@@ -133,6 +147,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `holiday_homes`
   ADD PRIMARY KEY (`home_id`);
+
+--
+-- Indexes for table `otp`
+--
+ALTER TABLE `otp`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `reservations`
@@ -165,6 +185,12 @@ ALTER TABLE `holiday_homes`
   MODIFY `home_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `otp`
+--
+ALTER TABLE `otp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
@@ -174,7 +200,7 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
