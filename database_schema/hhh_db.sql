@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2023 at 07:23 PM
+-- Generation Time: Oct 31, 2023 at 06:01 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -68,9 +68,22 @@ INSERT INTO `holiday_homes` (`home_id`, `name`, `location`, `availability_status
 (3, 'Luxury villa2', 'Florida', 'available', 'However, hidden deep in the house is the ultimate in luxury entertainment: a bowling alley! With two lanes, it\'s the perfect place to get competitive and even has a comfortable lounge space and TV screens so you can keep track of who\'s winning. At £2,052 ($2,608) a night, with a minimum stay of four nights, it\'ll be an expensive game of bowling. ', 4.3, '../assets/img/holiday-homes/Luxury-villa2.jpg', 300.00),
 (4, 'City escape', 'Florida', 'not_available', 'Designed as a break from busy city life, guests walk into a magical forest where the relaxing living room features a log stool and a fun swinging chair. The enchanting woodland doesn\'t come without modern-day amenities and includes a smart TV and air-conditioning. ', 3.9, '../assets/img/holiday-homes/City-escape.jpg', 360.00),
 (6, 'Domus Civita', 'Florida', 'available', 'Located on the first floor of the house, the living room and kitchen are full of original features including a basalt stone fireplace, terracotta floors and wooden beams, which all date from the 14th century. Overall the villa can sleep six people in three bedrooms which are surrounded by arched doorways and exposed tufa rock.', 3.7, '../assets/img/holiday-homes/Domus-Civita1.jpg', 470.00),
-(7, 'Artist\'s house', 'Florida', 'available', 'The house is packed full of retro, mid-century modern furniture. The informal dining room has a striking black and white colour scheme with a six-seater table and a dividing screen for the living room.', 3.5, '../assets/img/holiday-homes/Artist\'s house.jpg.jpg', 500.00),
-(8, 'Rural getaway', 'Florida', 'available', 'Guests at this Irish bolthole can experience a unique slice of local history. Located in sleepy North Tipperary, it is said to be one of Ireland\'s most famous and unique self-catering holiday homes. Step inside to see why!', 3.6, '../assets/img/holiday-homes/Rural getaway.jpg.jpg', 360.00),
-(9, 'The Rancho', 'Florida', 'available', 'This tropical retreat sits in nearly four acres of lush tropical land and is the perfect place to get away from it all. Filled with fruit trees and surrounded by coffee farms, it gives guests a taste of the real Costa Rica.', 4.7, '../assets/img/holiday-homes/The Rancho.jpg.jpg', 497.00);
+(7, 'Artist\'s house', 'Florida', 'available', 'The house is packed full of retro, mid-century modern furniture. The informal dining room has a striking black and white colour scheme with a six-seater table and a dividing screen for the living room.', 3.5, '../assets/img/holiday-homes/Artists house.jpg', 500.00),
+(8, 'Rural getaway', 'Florida', 'available', 'Guests at this Irish bolthole can experience a unique slice of local history. Located in sleepy North Tipperary, it is said to be one of Ireland\'s most famous and unique self-catering holiday homes. Step inside to see why!', 3.6, '../assets/img/holiday-homes/Rural getaway.jpg', 360.00),
+(9, 'The Rancho', 'Florida', 'available', 'This tropical retreat sits in nearly four acres of lush tropical land and is the perfect place to get away from it all. Filled with fruit trees and surrounded by coffee farms, it gives guests a taste of the real Costa Rica.', 4.7, '../assets/img/holiday-homes/The Rancho.jpg', 497.00);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `otp`
+--
+
+CREATE TABLE `otp` (
+  `id` int(11) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `otp_code` int(11) NOT NULL,
+  `timestamp` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -114,7 +127,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `name`, `email`, `phone`, `password`) VALUES
-(5, 'Adhiraj', 'a@gmail.com', 2147483647, '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4');
+(5, 'Adhiraj', 'adhiraj.saha.mca24@heritageit.edu.in', 2147483647, '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4'),
+(7, 'adhi', 'adhirajfirst@gmail.com', 2147483647, '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4');
 
 --
 -- Indexes for dumped tables
@@ -133,6 +147,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `holiday_homes`
   ADD PRIMARY KEY (`home_id`);
+
+--
+-- Indexes for table `otp`
+--
+ALTER TABLE `otp`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `reservations`
@@ -162,19 +182,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `holiday_homes`
 --
 ALTER TABLE `holiday_homes`
-  MODIFY `home_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `home_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `otp`
+--
+ALTER TABLE `otp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
