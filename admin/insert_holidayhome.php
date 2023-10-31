@@ -35,7 +35,7 @@ if (isset($_FILES["image"])) {
         if (in_array($fileType, $allowedFileTypes)) {
             # Check if the file size is within limits
             if ($fileSize <= $maxFileSize) {
-                $uploadPath = $uploadDirectory . $fileName . "." . $fileType;
+                $uploadPath = $uploadDirectory . $fileName;
 
                 # Move the uploaded file to the specified directory
                 if (move_uploaded_file($file["tmp_name"], $uploadPath)) {
