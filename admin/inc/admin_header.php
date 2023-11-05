@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="../users/index.php">
+        <a class="navbar-brand" href="../index.php">
             <img src="../assets/img/logo.jpg" alt="HappyHolidayHome" class="website-icon" style="max-width: 50px;">
         </a>
         <ul class="navbar-nav ml-auto">
