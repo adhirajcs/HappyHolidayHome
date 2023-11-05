@@ -8,7 +8,7 @@
         <ul class="nav-links">
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) : ?>
                 <!-- Display this for logged-in users -->
-                <li><a href="index.php">Home</a></li>
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
                 <li class="dropdown">
@@ -25,7 +25,7 @@
                 
             <?php else : ?>
                 <!-- Display this for unregistered users -->
-                <li><a href="index.php">Home</a></li>
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
                 <li><a href="login.php">Login</a></li>

@@ -28,37 +28,19 @@ if (isset($_POST['login'])) {
         $rs = $con->query($sql);
 
         if ($rs->num_rows == 1) {
-            // Generate OTP
-            $otp = rand(100000, 999999);
+            
+            // Login successful
+            $userData = $rs->fetch_assoc();
+            $userName = $userData['name'];
+            $userId = $userData['user_id'];
 
-            // Store OTP in the database
-            $insertOtp = "INSERT INTO otp (user_email, otp_code, timestamp) VALUES ('$email', $otp, NOW())";
-            $con->query($insertOtp);
-
-            // Send OTP via email
-            $mail = new PHPMailer\PHPMailer\PHPMailer();
-
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'adhirajfirst@gmail.com';
-            $mail->Password = $app_password;
-            $mail->SMTPSecure = 'ssl';
-            $mail->Port = 465;
-
-            $mail->setFrom('adhirajfirst@gmail.com', 'HappyHolidayHome');
-            $mail->addAddress($email);
-
-            $mail->Subject = 'Your OTP for Login';
-            $mail->Body = "Your OTP is: $otp";
-
-            if ($mail->send()) {
-                // Redirect to verify_otp.php with email parameter
-                header("Location: verify_otp.php?email=$email");
-                exit();
-            } else {
-                $loginError = "Failed to send OTP. Please try again later.";
-            }
+            $_SESSION['user_id'] = $userId;
+            $_SESSION['name'] = $userName;
+            $_SESSION['loggedin'] = true;
+            
+            // Redirect to index.php on successful verification
+            header("Location: ../index.php");
+            exit();
         } else {
             // Login failed
             $loginError = "Invalid email or password";

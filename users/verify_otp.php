@@ -2,8 +2,13 @@
 # database
 include("../inc/db.php");
 
-if (isset($_GET['email'])) {
+if (isset($_GET['email']) && isset($_GET['name']) && isset($_GET['phone']) && isset($_GET['password'])) {
     $email = $_GET['email'];
+    $name = $_GET['name'];
+    $phone = $_GET['phone'];
+    $password = $_GET['password'];
+
+
     if (isset($_POST['verify'])) {
         $enteredOtp = $_POST['otp'];
         $sql = "SELECT * FROM otp WHERE user_email = '$email' AND otp_code = $enteredOtp";
@@ -14,27 +19,25 @@ if (isset($_GET['email'])) {
             $deleteOtp = "DELETE FROM otp WHERE user_email = '$email'";
             $con->query($deleteOtp);
 
-            $sql = "SELECT * FROM users WHERE email = '$email'";
-            $rs = $con->query($sql);
-            // Login successful
-            $userData = $rs->fetch_assoc();
-            $userName = $userData['name'];
-            $userId = $userData['user_id'];
+            $insertQuery = "INSERT INTO users (name, email, phone, password) 
+                            VALUES ('$name', '$email', '$phone', '$password')";
 
-            $_SESSION['user_id'] = $userId;
-            $_SESSION['name'] = $userName;
-            $_SESSION['loggedin'] = true;
-            
-            // Redirect to index.php on successful verification
-            header("Location: index.php");
-            exit();
+            if ($con->query($insertQuery)) {
+                // Registration successful
+                $_SESSION['registrationSuccess'] = true;
+                header("Location: login.php");
+                exit();
         } else {
             $verifyError = "Invalid OTP. Please try again.";
         }
     }
-} else {
-    $missingEmailError = "Missing email parameter. Please provide a valid email link.";
+} 
 }
+else {
+    $missingEmailError = "Missing email or name parameter. Please provide a valid email link.";
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

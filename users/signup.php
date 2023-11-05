@@ -2,6 +2,11 @@
 
 # database
 include("../inc/db.php");
+include("../inc/api.php");
+
+// Include PHPMailer
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
 
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
@@ -21,16 +26,35 @@ if (isset($_POST['save'])) {
         if ($password === $confirmPassword) {
             $password = hash('sha256', $password);
 
-            $insertQuery = "INSERT INTO users (name, email, phone, password) 
-                            VALUES ('$name', '$email', '$phone', '$password')";
+            $otp = rand(100000, 999999);
 
-            if ($con->query($insertQuery)) {
-                // Registration successful
-                $_SESSION['registrationSuccess'] = true;
-                header("Location: login.php");
+            // Store OTP in the database
+            $insertOtp = "INSERT INTO otp (user_email, otp_code, timestamp) VALUES ('$email', $otp, NOW())";
+            $con->query($insertOtp);
+
+            // Send OTP via email
+            $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'adhirajfirst@gmail.com';
+            $mail->Password = $app_password;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
+
+            $mail->setFrom('adhirajfirst@gmail.com', 'HappyHolidayHome');
+            $mail->addAddress($email);
+
+            $mail->Subject = 'Your OTP for Login';
+            $mail->Body = "Your OTP is: $otp";
+
+            if ($mail->send()) {
+                // Redirect to verify_otp.php with email and name parameter
+                header("Location: verify_otp.php?email=$email&name=$name&phone=$phone&password=$password");
                 exit();
             } else {
-                $registrationError = "Registration failed. Please try again.";
+                $registrationError = "Failed to send OTP. Please try again later.";
             }
         } else {
             $registrationError = "Passwords do not match.";
