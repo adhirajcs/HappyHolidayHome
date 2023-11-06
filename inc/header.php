@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar">
         <div class="logo">
-            <a href="index.php">
+            <a href="../index.php">
                 <img src="../assets/img/logo.jpg" alt="Logo" style="width: 30px; height: auto;">
             </a>
         </div>
