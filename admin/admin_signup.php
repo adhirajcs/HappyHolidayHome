@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         $registrationError = "An account with the same email already exists.";
     } else {
         // Perform password validation and hashing
-        if ($admin_password === $confirm_password) {
+        if ($admin_password === $confirm_password && strlen($admin_password) > 7) {
             // Hash the password (you should use a strong hashing algorithm)
             $admin_password = hash('sha256', $admin_password);
 
@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
                 $registrationError = "Registration failed. Please try again.";
             }
         } else {
-            $registrationError = "Passwords do not match.";
+            $registrationError = "Passwords do not match or password length is less than 8.";
         }
     }
 }

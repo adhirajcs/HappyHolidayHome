@@ -39,7 +39,7 @@ if (isset($_POST['changePassword'])) {
         // Current password matches the stored password
         if ($newPassword !== $currentPassword) {
             // Ensure the new password is not the same as the current password
-            if ($newPassword === $confirmNewPassword) {
+            if ($newPassword === $confirmNewPassword && strlen($newPassword) > 7) {
                 // New password and confirm new password match
                 // Update the user's password in the database using SHA-256
                 $hashedNewPassword = hash('sha256', $newPassword);
@@ -51,7 +51,7 @@ if (isset($_POST['changePassword'])) {
                     $passwordChangeError = "Password update failed. Please try again.";
                 }
             } else {
-                $passwordChangeError = "New password and confirm new password do not match.";
+                $passwordChangeError = "New password and confirm new password do not match or password length is less than 8.";
             }
         } else {
             $passwordChangeError = "The new password is the same as the current password.";

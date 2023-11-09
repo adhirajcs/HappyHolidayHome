@@ -15,6 +15,8 @@ if (isset($_POST['save'])) {
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
 
+    if(strlen($phone)==10) {
+
     // Check if the email or phone number already exists in the database
     $checkQuery = "SELECT * FROM users WHERE email = '$email' OR phone = '$phone'";
     $result = $con->query($checkQuery);
@@ -23,7 +25,7 @@ if (isset($_POST['save'])) {
         $registrationError = "An account with the same email or phone number already exists.";
     } else {
         // Perform password validation and hashing
-        if ($password === $confirmPassword) {
+        if ($password === $confirmPassword && strlen($password) > 7) {
             $password = hash('sha256', $password);
 
             $otp = rand(100000, 999999);
@@ -57,9 +59,13 @@ if (isset($_POST['save'])) {
                 $registrationError = "Failed to send OTP. Please try again later.";
             }
         } else {
-            $registrationError = "Passwords do not match.";
+            $registrationError = "Passwords do not match or password length is less than 8.";
         }
     }
+
+}else {
+    $registrationError = "Phone number should be of 10 digits.";
+}
 }
 ?>
 

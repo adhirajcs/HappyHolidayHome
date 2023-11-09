@@ -38,6 +38,13 @@ if (isset($_POST['home_id'], $_POST['checkIn'], $_POST['checkOut'])) {
     $homeId = $_POST['home_id'];
     $checkIn = $_POST['checkIn'];
     $checkOut = $_POST['checkOut'];
+    $curr_date = date("Y-m-d");
+
+    if (strtotime($checkIn) < strtotime($curr_date) || strtotime($checkOut) < strtotime($curr_date)) {
+	$reservationError = "Check-in date or check-out date are lesser than current date.";
+    
+    }
+    else {
 
     // Check if check-in date is greater than check-out date
     if (strtotime($checkIn) > strtotime($checkOut)) {
@@ -80,6 +87,7 @@ if (isset($_POST['home_id'], $_POST['checkIn'], $_POST['checkOut'])) {
             $reservationError = "Error fetching home price: " . $con->error;
         }
     }
+}
 }
 
 ?>
