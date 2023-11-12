@@ -15,57 +15,56 @@ if (isset($_POST['save'])) {
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
 
-    if(strlen($phone)==10) {
+    if (strlen($phone) == 10) {
 
-    // Check if the email or phone number already exists in the database
-    $checkQuery = "SELECT * FROM users WHERE email = '$email' OR phone = '$phone'";
-    $result = $con->query($checkQuery);
+        // Check if the email or phone number already exists in the database
+        $checkQuery = "SELECT * FROM users WHERE email = '$email' OR phone = '$phone'";
+        $result = $con->query($checkQuery);
 
-    if ($result->num_rows > 0) {
-        $registrationError = "An account with the same email or phone number already exists.";
-    } else {
-        // Perform password validation and hashing
-        if ($password === $confirmPassword && strlen($password) > 7) {
-            $password = hash('sha256', $password);
-
-            $otp = rand(100000, 999999);
-
-            // Store OTP in the database
-            $insertOtp = "INSERT INTO otp (user_email, otp_code, timestamp) VALUES ('$email', $otp, NOW())";
-            $con->query($insertOtp);
-
-            // Send OTP via email
-            $mail = new PHPMailer\PHPMailer\PHPMailer();
-
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'adhirajfirst@gmail.com';
-            $mail->Password = $app_password;
-            $mail->SMTPSecure = 'ssl';
-            $mail->Port = 465;
-
-            $mail->setFrom('adhirajfirst@gmail.com', 'HappyHolidayHome');
-            $mail->addAddress($email);
-
-            $mail->Subject = 'Your OTP for Login';
-            $mail->Body = "Your OTP is: $otp";
-
-            if ($mail->send()) {
-                // Redirect to verify_otp.php with email and name parameter
-                header("Location: verify_otp.php?email=$email&name=$name&phone=$phone&password=$password");
-                exit();
-            } else {
-                $registrationError = "Failed to send OTP. Please try again later.";
-            }
+        if ($result->num_rows > 0) {
+            $registrationError = "An account with the same email or phone number already exists.";
         } else {
-            $registrationError = "Passwords do not match or password length is less than 8.";
-        }
-    }
+            // Perform password validation and hashing
+            if ($password === $confirmPassword && strlen($password) > 7) {
+                $password = hash('sha256', $password);
 
-}else {
-    $registrationError = "Phone number should be of 10 digits.";
-}
+                $otp = rand(100000, 999999);
+
+                // Store OTP in the database
+                $insertOtp = "INSERT INTO otp (user_email, otp_code, timestamp) VALUES ('$email', $otp, NOW())";
+                $con->query($insertOtp);
+
+                // Send OTP via email
+                $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'adhirajfirst@gmail.com';
+                $mail->Password = $app_password;
+                $mail->SMTPSecure = 'ssl';
+                $mail->Port = 465;
+
+                $mail->setFrom('adhirajfirst@gmail.com', 'HappyHolidayHome');
+                $mail->addAddress($email);
+
+                $mail->Subject = 'Your OTP for Login';
+                $mail->Body = "Your OTP is: $otp";
+
+                if ($mail->send()) {
+                    // Redirect to verify_otp.php with email and name parameter
+                    header("Location: verify_otp.php?email=$email&name=$name&phone=$phone&password=$password");
+                    exit();
+                } else {
+                    $registrationError = "Failed to send OTP. Please try again later.";
+                }
+            } else {
+                $registrationError = "Passwords do not match or password length is less than 8.";
+            }
+        }
+    } else {
+        $registrationError = "Phone number should be of 10 digits.";
+    }
 }
 ?>
 
@@ -84,12 +83,12 @@ if (isset($_POST['save'])) {
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
-    
+
 </head>
 
 <body">
-     
-     <!-- Nav Bar -->
+
+    <!-- Nav Bar -->
     <?php include("../inc/header.php"); ?>
     <br><br><br>
 
@@ -113,12 +112,12 @@ if (isset($_POST['save'])) {
             <button type="submit" name="save" class="btn btn-success">Sign Up</button>
             <button type="reset" name="reset" class="btn btn-danger">Cancel</button>
             <p class="no-account">Already have Account? <a href="login.php">Login here</a></p>
-            <p class="no-account">Are you an Admin? <a href="../admin/admin_signup.php">Admin Sign Up</a></p>
+            <!-- <p class="no-account">Are you an Admin? <a href="../admin/admin_signup.php">Admin Sign Up</a></p> -->
         </form>
     </div>
 
     <!-- Footer -->
     <?php include("../inc/footer.php"); ?>
-</body>
+    </body>
 
 </html>

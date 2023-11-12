@@ -27,21 +27,23 @@ Welcome to HappyHolidayHome! This is a full-stack holiday home reservation websi
   - MySQL Database
   - PHPMailer for OTP (One-Time Password) system for user verification
 
-## Usage (Self-Hosting with XAMPP)
+## Usage
 
-1. **Setup Environment:** To host the HappyHolidayHome reservation website, ensure you have a server environment with PHP and MySQL support. XAMPP provides an easy solution by bundling Apache, MySQL, PHP, and Perl. Transfer the project files to your XAMPP's web directory (usually "htdocs").
+### Cloud Hosting (000Webhost.com)
 
-2. **Database Configuration:** Import the provided MySQL database schema to set up the necessary tables and configurations for storing holiday home details, user information, and reservations. Use PHPMyAdmin, accessible through XAMPP, to import the database schema.
+Visit [happyholidayhome.000webhostapp.com/](https://happyholidayhome.000webhostapp.com/) to explore and use the online version of the website. Here, you can browse available vacation homes, make reservations, and manage your bookings.
 
-3. **Customization:** Modify the website content, such as holiday home listings, descriptions, images, and pricing information according to your requirements. Edit the project files within the XAMPP directory.
+### Local Hosting with XAMPP
 
-4. **Google reCAPTCHA Setup:** Obtain your reCAPTCHA keys from Google's reCAPTCHA administration panel. Integrate these keys into the user and admin login pages for added security. Update the respective files within your XAMPP directory.
+1. **Setup Environment:** To host the HappyHolidayHome reservation website, ensure you have a server environment with PHP and MySQL support.
 
-5. **OTP System Configuration:** Configure PHPMailer with your email settings for the OTP (One-Time Password) system to enable user verification during registration and login processes. Adjust the PHPMailer settings within your XAMPP environment.
+2. **Database Configuration:** Import the provided MySQL database schema via PHPMyAdmin for storing details.
 
-6. **Launch and Usage:** After completing the setup and configurations, access the homepage through your local server using XAMPP to begin browsing available vacation homes. Users can register/login to make reservations, and admins can utilize the admin panel to manage listings and reservations.
+3. **Google reCAPTCHA Setup:** Obtain your reCAPTCHA keys from Google's reCAPTCHA administration panel. Update these keys into the user and admin login PHP files within your XAMPP directory.
 
-7. **Security Considerations:** Regularly update and maintain the system to ensure security protocols are up to date. Periodically review reCAPTCHA and email configurations within your XAMPP environment to guarantee effective security measures.
+5. **OTP System Configuration:** Configure PHPMailer with your email settings for the OTP system for user registration. Adjust the PHPMailer settings within your XAMPP environment.
+
+6. **Launch and Usage:** Access the homepage through XAMPP, browse homes, register/login, and manage reservations.
 
 ## Reference
 

@@ -29,6 +29,7 @@ if ($result && $result->num_rows > 0) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,38 +42,40 @@ if ($result && $result->num_rows > 0) {
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
 </head>
+
 <body>
     <!-- Nav Bar -->
     <?php include("../inc/header.php"); ?>
 
     <div class="container">
-    <h1 style="margin-top: 50px;">My Reservations</h1>
-    <?php
-    if (!empty($reservations)) {
-        echo "<ul class='reservation-list'>";
-        foreach ($reservations as $reservation) {
-            echo "<li class='reservation-item'>";
-            echo "<img src='{$reservation['image_path']}' alt='{$reservation['name']}' class='home-image'>";
-            echo "<div class='reservation-details'>";
-            echo "<p><strong>Home:</strong> {$reservation['name']}</p>";
-            echo "<p><strong>Check-in:</strong> {$reservation['check_in_date']}</p>";
-            echo "<p><strong>Check-out:</strong> {$reservation['check_out_date']}</p>";
-            echo "<p><strong>Total Price:</strong> ₹{$reservation['total_price']}</p>";
-            echo "<form method='post' action='cancel_booking.php'>";
-            echo "<input type='hidden' name='reservation_id' value='{$reservation['reservation_id']}'>";
-            echo "<button type='submit' class='cancel-button' name='cancel_booking'>Cancel Booking</button>";
-            echo "</form>";
-            echo "</div>";
-            echo "</li>";
+        <h1 style="margin-top: 50px;">My Reservations</h1>
+        <?php
+        if (!empty($reservations)) {
+            echo "<ul class='reservation-list'>";
+            foreach ($reservations as $reservation) {
+                echo "<li class='reservation-item'>";
+                echo "<img src='{$reservation['image_path']}' alt='{$reservation['name']}' class='home-image'>";
+                echo "<div class='reservation-details'>";
+                echo "<p><strong>Home:</strong> {$reservation['name']}</p>";
+                echo "<p><strong>Check-in:</strong> {$reservation['check_in_date']}</p>";
+                echo "<p><strong>Check-out:</strong> {$reservation['check_out_date']}</p>";
+                echo "<p><strong>Total Price:</strong> ₹{$reservation['total_price']}</p>";
+                echo "<form method='post' action='cancel_booking.php'>";
+                echo "<input type='hidden' name='reservation_id' value='{$reservation['reservation_id']}'>";
+                echo "<button type='submit' class='cancel-button' name='cancel_booking'>Cancel Booking</button>";
+                echo "</form>";
+                echo "</div>";
+                echo "</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo "<p>No reservations found.</p>";
         }
-        echo "</ul>";
-    } else {
-        echo "<p>No reservations found.</p>";
-    }
-    ?>
-</div>
+        ?>
+    </div>
 
     <!-- Footer -->
     <?php include("../inc/footer.php"); ?>
 </body>
+
 </html>

@@ -23,6 +23,7 @@ if ($resultReservations->num_rows > 0) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,6 +36,7 @@ if ($resultReservations->num_rows > 0) {
     <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
     <link rel="stylesheet" href="assets/css/view_reservations.css">
 </head>
+
 <body>
 
     <!-- Header -->
@@ -104,37 +106,37 @@ if ($resultReservations->num_rows > 0) {
                         <form method="POST" action="update_reservation.php">
                             <!-- Hidden input to pass reservation_id to update_reservation.php -->
                             <input type="hidden" name="reservation_id" value="<?php echo $reservation['reservation_id']; ?>">
-                            
+
                             <!-- User ID -->
                             <div class="mb-3">
                                 <label for="user_id_<?php echo $reservation['reservation_id']; ?>" class="form-label">User ID</label>
                                 <input type="text" class="form-control" id="user_id_<?php echo $reservation['reservation_id']; ?>" name="user_id" value="<?php echo $reservation['user_id']; ?>">
                             </div>
-                            
+
                             <!-- Home ID -->
                             <div class="mb-3">
                                 <label for="home_id_<?php echo $reservation['reservation_id']; ?>" class="form-label">Home ID</label>
                                 <input type="text" class="form-control" id="home_id_<?php echo $reservation['reservation_id']; ?>" name="home_id" value="<?php echo $reservation['home_id']; ?>">
                             </div>
-                            
+
                             <!-- Check-In Date -->
                             <div class="mb-3">
                                 <label for="check_in_date_<?php echo $reservation['reservation_id']; ?>" class="form-label">Check-In Date</label>
                                 <input type="date" class="form-control" id="check_in_date_<?php echo $reservation['reservation_id']; ?>" name="check_in_date" value="<?php echo $reservation['check_in_date']; ?>">
                             </div>
-                            
+
                             <!-- Check-Out Date -->
                             <div class="mb-3">
                                 <label for="check_out_date_<?php echo $reservation['reservation_id']; ?>" class="form-label">Check-Out Date</label>
                                 <input type="date" class="form-control" id="check_out_date_<?php echo $reservation['reservation_id']; ?>" name="check_out_date" value="<?php echo $reservation['check_out_date']; ?>">
                             </div>
-                            
+
                             <!-- Total Price -->
                             <div class="mb-3">
                                 <label for="total_price_<?php echo $reservation['reservation_id']; ?>" class="form-label">Total Price</label>
                                 <input type="number" class="form-control" id="total_price_<?php echo $reservation['reservation_id']; ?>" name="total_price" value="<?php echo $reservation['total_price']; ?>" step="0.01">
                             </div>
-                            
+
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
                         </form>
@@ -149,7 +151,8 @@ if ($resultReservations->num_rows > 0) {
         <div class="container d-flex flex-column align-items-center">
             <div class="footer-info text-center">
                 <p style="font-weight: bold; margin: auto;">HappyHolidayHome
-                    <br>Made with ❤️ by Adhiraj Saha</p>
+                    <br>Made with ❤️ by Adhiraj Saha
+                </p>
                 <br>
                 <p>Connect with me on:</p>
                 <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
@@ -180,4 +183,5 @@ if ($resultReservations->num_rows > 0) {
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

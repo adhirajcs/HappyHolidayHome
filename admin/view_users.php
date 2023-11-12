@@ -23,6 +23,7 @@ if ($resultUsers->num_rows > 0) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,6 +36,7 @@ if ($resultUsers->num_rows > 0) {
     <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
     <link rel="stylesheet" href="assets/css/view_users.css">
 </head>
+
 <body>
 
     <!-- Header -->
@@ -47,7 +49,7 @@ if ($resultUsers->num_rows > 0) {
 
     <!-- Sidebar -->
     <?php include("inc/admin_side_bar.php"); ?>
-    
+
 
     <!-- Main Content -->
     <main class="main-content">
@@ -84,7 +86,8 @@ if ($resultUsers->num_rows > 0) {
         <div class="container d-flex flex-column align-items-center">
             <div class="footer-info text-center">
                 <p style="font-weight: bold; margin: auto;">HappyHolidayHome
-                    <br>Made with ❤️ by Adhiraj Saha</p>
+                    <br>Made with ❤️ by Adhiraj Saha
+                </p>
                 <br>
                 <p>Connect with me on:</p>
                 <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
@@ -115,4 +118,5 @@ if ($resultUsers->num_rows > 0) {
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

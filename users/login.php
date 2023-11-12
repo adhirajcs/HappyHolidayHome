@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
         $rs = $con->query($sql);
 
         if ($rs->num_rows == 1) {
-            
+
             // Login successful
             $userData = $rs->fetch_assoc();
             $userName = $userData['name'];
@@ -37,7 +37,7 @@ if (isset($_POST['login'])) {
             $_SESSION['user_id'] = $userId;
             $_SESSION['name'] = $userName;
             $_SESSION['loggedin'] = true;
-            
+
             // Redirect to index.php on successful verification
             header("Location: ../index.php");
             exit();
@@ -67,7 +67,7 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
-    
+
 </head>
 
 <body>
@@ -92,7 +92,7 @@ if (isset($_POST['login'])) {
             <p class="no-account">Are you an Admin? <a href="../admin/admin_login.php">Admin Login</a></p>
         </form>
     </div>
-    
+
     <!-- Footer -->
     <?php include("../inc/footer.php"); ?>
 

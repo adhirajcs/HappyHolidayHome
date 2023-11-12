@@ -27,20 +27,21 @@ if (isset($_GET['email']) && isset($_GET['name']) && isset($_GET['phone']) && is
                 $_SESSION['registrationSuccess'] = true;
                 header("Location: login.php");
                 exit();
-        } else {
-            $verifyError = "Invalid OTP. Please try again.";
+            } else {
+                $verifyError = "Invalid OTP. Please try again.";
+            }
         }
     }
-} 
-}
-else {
+} else {
     $missingEmailError = "Missing email or name parameter. Please provide a valid email link.";
 }
 
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,8 +53,9 @@ else {
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
-    
+
 </head>
+
 <body>
 
     <!-- Nav Bar -->
@@ -80,4 +82,5 @@ else {
     <?php include("../inc/footer.php"); ?>
 
 </body>
+
 </html>

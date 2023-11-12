@@ -45,6 +45,7 @@ if (isset($_GET['location'], $_GET['checkIn'], $_GET['checkOut'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -57,6 +58,7 @@ if (isset($_GET['location'], $_GET['checkIn'], $_GET['checkOut'])) {
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
 </head>
+
 <body>
     <!-- Nav Bar -->
     <?php include("../inc/header.php"); ?>
@@ -93,4 +95,5 @@ if (isset($_GET['location'], $_GET['checkIn'], $_GET['checkOut'])) {
     <!-- Footer -->
     <?php include("../inc/footer.php"); ?>
 </body>
+
 </html>

@@ -44,21 +44,23 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin Signup</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
     <link rel="stylesheet" href="assets/css/admin_signup_login.css">
 
 
 </head>
+
 <body>
 
     <!-- Header -->
@@ -66,38 +68,38 @@ if (isset($_POST['submit'])) {
 
     <!-- Main Content -->
     <div class="container mt-5">
-    <form method="POST" action="" class="text-center">
-        <h2>Admin Signup</h2>
-        <div class="form-group" style="text-align: left;">
-            <label for="admin_name">Name:</label>
-            <input type="text" class="form-control" id="admin_name" name="admin_name" required>
-        </div>
+        <form method="POST" action="" class="text-center">
+            <h2>Admin Signup</h2>
+            <div class="form-group" style="text-align: left;">
+                <label for="admin_name">Name:</label>
+                <input type="text" class="form-control" id="admin_name" name="admin_name" required>
+            </div>
 
-        <div class="form-group" style="text-align: left;">
-            <label for="admin_email">Email:</label>
-            <input type="email" class="form-control" id="admin_email" name="admin_email" required>
-        </div>
+            <div class="form-group" style="text-align: left;">
+                <label for="admin_email">Email:</label>
+                <input type="email" class="form-control" id="admin_email" name="admin_email" required>
+            </div>
 
-        <div class="form-group" style="text-align: left;">
-            <label for="admin_password">Password:</label>
-            <input type="password" class="form-control" id="admin_password" name="admin_password" required>
-        </div>
+            <div class="form-group" style="text-align: left;">
+                <label for="admin_password">Password:</label>
+                <input type="password" class="form-control" id="admin_password" name="admin_password" required>
+            </div>
 
-        <div class="form-group" style="text-align: left;">
-            <label for="confirm_password">Confirm Password:</label>
-            <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
-        </div>
-        <?php
-        if (isset($registrationError)) {
-            echo "<p class='error' style='color: red; font-weight: bold;'>$registrationError</p>";
-        }
-        ?>
-        <div class="d-grid gap-2">
-            <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
-            <button type="reset" name="reset" class="btn btn-danger">Cancel</button>
-        </div>
-    </form>
-</div>
+            <div class="form-group" style="text-align: left;">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+            </div>
+            <?php
+            if (isset($registrationError)) {
+                echo "<p class='error' style='color: red; font-weight: bold;'>$registrationError</p>";
+            }
+            ?>
+            <div class="d-grid gap-2">
+                <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
+                <button type="reset" name="reset" class="btn btn-danger">Cancel</button>
+            </div>
+        </form>
+    </div>
 
 
     <!-- Footer -->
@@ -112,4 +114,5 @@ if (isset($_POST['submit'])) {
     <script src="assets/js/header_footer.js"></script>
 
 </body>
+
 </html>

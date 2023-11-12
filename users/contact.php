@@ -22,7 +22,7 @@ include("../inc/db.php");
 </head>
 
 <body>
-    
+
     <!-- Nav Bar -->
     <?php include("../inc/header.php"); ?>
 

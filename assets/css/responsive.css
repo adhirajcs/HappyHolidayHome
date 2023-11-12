@@ -1,9 +1,9 @@
 /* Responsive styles */
 @media screen and (max-width: 768px) {
-    
+
     .navbar {
         padding: 10px;
-        position: static; 
+        position: static;
     }
 
     .logo {
@@ -54,29 +54,40 @@
     .footer-links {
         margin-top: 10px;
     }
-    
+
     .holiday-home {
-        flex-direction: column; 
-        align-items: flex-start; /* Align items to the left */
-        padding: 10px; /* Adjust padding for better spacing */
+        flex-direction: column;
+        align-items: flex-start;
+        /* Align items to the left */
+        padding: 10px;
+        /* Adjust padding for better spacing */
     }
-    
+
     .home-image {
-        max-width: 100%; /* Take full width */
-        max-height: 300px; /* Adjust the height */
-        margin-right: 0; /* Remove right margin */
-        margin-bottom: 10px; /* Add bottom margin for spacing */
+        max-width: 100%;
+        /* Take full width */
+        max-height: 300px;
+        /* Adjust the height */
+        margin-right: 0;
+        /* Remove right margin */
+        margin-bottom: 10px;
+        /* Add bottom margin for spacing */
     }
-    
+
     .holiday-details {
-        border-left: none; /* Remove the border */
-        padding-left: 0; /* Remove padding */
+        border-left: none;
+        /* Remove the border */
+        padding-left: 0;
+        /* Remove padding */
     }
-    
+
     .btn {
-        margin-right: 0; /* Remove margin */
-        margin-bottom: 10px; /* Add bottom margin for spacing */
+        margin-right: 0;
+        /* Remove margin */
+        margin-bottom: 10px;
+        /* Add bottom margin for spacing */
     }
+
     h2 {
         font-size: 1.2em;
     }

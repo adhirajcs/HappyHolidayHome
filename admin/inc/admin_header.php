@@ -21,10 +21,10 @@
                     </div>
                 <?php
                 } else {
-                    $currentPage = basename($_SERVER['PHP_SELF']);
-                    $loginText = ($currentPage === 'admin_login.php') ? 'SIGNUP' : 'LOGIN';
-                    $loginPage = ($currentPage === 'admin_login.php') ? 'admin_signup.php' : 'admin_login.php';
-                    echo '<a class="btn btn-success" href="' . $loginPage . '">' . $loginText . '</a>';
+                    // $currentPage = basename($_SERVER['PHP_SELF']);
+                    // $loginText = ($currentPage === 'admin_login.php') ? 'SIGNUP' : 'LOGIN';
+                    // $loginPage = ($currentPage === 'admin_login.php') ? 'admin_signup.php' : 'admin_login.php';
+                    // echo '<a class="btn btn-success" href="' . $loginPage . '">' . $loginText . '</a>';
                 }
                 ?>
             </li>

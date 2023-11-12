@@ -10,18 +10,18 @@
         </div>
     </div>
     <div class="footer-info">
-    <p>HappyHolidayHome</p>
-    <br>
-    <p>Made with ❤️ by Adhiraj Saha</p>
-    <br>
-    <p>Connect with me on:</p>
-    <br>
-    <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-2x fa-linkedin" style="color: #ffffff;"></i>
-    </a>
-    &nbsp;
-    <a href="https://github.com/adhirajcs" target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-2x fa-github" style="color: #ffffff;"></i>
-    </a>
-</div>
+        <p>HappyHolidayHome</p>
+        <br>
+        <p>Made with ❤️ by Adhiraj Saha</p>
+        <br>
+        <p>Connect with me on:</p>
+        <br>
+        <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-2x fa-linkedin" style="color: #ffffff;"></i>
+        </a>
+        &nbsp;
+        <a href="https://github.com/adhirajcs" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-2x fa-github" style="color: #ffffff;"></i>
+        </a>
+    </div>
 </footer>

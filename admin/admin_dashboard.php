@@ -27,32 +27,34 @@ $reservedHomeCount = $resultReservedHomeCount->fetch_assoc()['reserved_count'];
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin Panel</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="../assets/img/logo.jpg">
     <link rel="stylesheet" href="assets/css/admin_dashboard.css">
 </head>
+
 <body>
-    
+
     <!-- Header -->
     <?php include("inc/admin_header.php"); ?>
 
 
     <!-- Toggle Sidebar Button -->
     <button id="toggle-sidebar" class="btn btn-primary">
-    <i class="fas fa-bars"></i>
+        <i class="fas fa-bars"></i>
     </button>
 
     <!-- Sidebar -->
     <?php include("inc/admin_side_bar.php"); ?>
-    
+
     <!-- Main Content -->
     <main class="main-content">
         <div class="container-fluid">
@@ -98,7 +100,8 @@ $reservedHomeCount = $resultReservedHomeCount->fetch_assoc()['reserved_count'];
         <div class="container d-flex flex-column align-items-center">
             <div class="footer-info text-center">
                 <p style="font-weight: bold; margin: auto;">HappyHolidayHome
-                    <br>Made with ❤️ by Adhiraj Saha</p>
+                    <br>Made with ❤️ by Adhiraj Saha
+                </p>
                 <br>
                 <p>Connect with me on:</p>
                 <a href="https://www.linkedin.com/in/adhirajsaha" target="_blank" rel="noopener noreferrer">
@@ -129,4 +132,5 @@ $reservedHomeCount = $resultReservedHomeCount->fetch_assoc()['reserved_count'];
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

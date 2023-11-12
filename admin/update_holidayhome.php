@@ -30,7 +30,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $Filename = $_FILES['image']['name'];
 
         // Define the directory where the uploaded images will be stored
-        $uploadDirectory = "../assets/img/holiday-homes/"; 
+        $uploadDirectory = "../assets/img/holiday-homes/";
 
         $filePath = $uploadDirectory . $Filename;
 
@@ -95,5 +95,4 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $editError = "Error preparing the update statement: " . $con->error;
     }
 }
-
 ?>

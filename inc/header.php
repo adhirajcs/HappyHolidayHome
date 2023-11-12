@@ -22,7 +22,7 @@
                         <li><a href="logout.php">Logout</a></li>
                     </ul>
                 </li>
-                
+
             <?php else : ?>
                 <!-- Display this for unregistered users -->
                 <li><a href="../index.php">Home</a></li>
